@@ -25,7 +25,7 @@ export default function HeroSection() {
         </p>
 
         <h1
-          className="text-6xl md:text-8xl mb-8 leading-tight text-white drop-shadow-lg"
+          className="text-6xl md:text-7xl mb-8 leading-tight text-white drop-shadow-lg"
           style={{ fontFamily: "var(--font-playfair), serif" }}
         >
           Trọng Nghĩa
