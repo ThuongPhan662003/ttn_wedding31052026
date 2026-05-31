@@ -8,20 +8,20 @@ module.exports = {
     extend: {
       colors: {
         wedding: {
-          bg: "#FFFFFF",        // Trắng thanh lịch
-          pastel: "#FFF0F5",    // Hồng Pastel làm nền phụ hoặc thẻ
-          pink: "#FFB6C1",      // Hồng điểm nhấn nút bấm
-          gold: "#D4AF37",      // Vàng Gold sang trọng cho viền/tiêu đề
-          dark: "#2C3E50",      // Màu chữ chính
-        }
+          bg: "#FFFFFF", // Trắng chủ đạo
+          cream: "#F8F6F1", // Trắng kem
+          gold: "#C9A227", // Vàng gold
+          goldLight: "#E6D6A8", // Vàng nhạt
+          green: "#66785F", // Xanh olive
+          greenLight: "#A8BBA2", // Xanh sage
+          dark: "#2D3748", // Chữ chính
+        },
       },
       fontFamily: {
-        playfair: ['var(--font-playfair)', 'serif'], // Font viết tay sang trọng
-        arcittya: ['var(--font-arcittya)', 'sans-serif'], // Khai báo font chữ của riêng bạn tại đây
-        // coldwell: ['"FC-Coldwell-Bridges"', 'sans-serif'],
-
+        playfair: ["var(--font-playfair)", "serif"],
+        arcittya: ["var(--font-arcittya)", "sans-serif"],
       },
     },
   },
   plugins: [],
-}
+};
