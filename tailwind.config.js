@@ -17,6 +17,9 @@ module.exports = {
       },
       fontFamily: {
         playfair: ['var(--font-playfair)', 'serif'], // Font viết tay sang trọng
+        arcittya: ['var(--font-arcittya)', 'sans-serif'], // Khai báo font chữ của riêng bạn tại đây
+        // coldwell: ['"FC-Coldwell-Bridges"', 'sans-serif'],
+
       },
     },
   },

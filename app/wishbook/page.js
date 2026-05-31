@@ -135,7 +135,7 @@ export default function WishbookPage() {
 
       {/* Chân trang thanh tao đồng bộ màu chữ dark [source: 1] */}
       <footer className="w-full text-center text-[9px] text-wedding-dark/40 font-medium uppercase tracking-[0.4em] mt-20 relative z-10 border-t border-wedding-gold/10 pt-4">
-        Hiếu &amp; Tiên Wedding • 2026
+        Trọng Nghĩa &amp; Thu Thảo Wedding • 2026
       </footer>
 
     </main>

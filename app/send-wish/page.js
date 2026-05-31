@@ -195,7 +195,7 @@ export default function SendWishPage() {
       </div>
 
       <p className="text-[9px] text-wedding-dark/40 font-medium uppercase tracking-[0.4em] mt-8">
-        Hiếu &amp; Tiên Wedding • 2026
+        Trọng Nghĩa &amp; Thu Thảo Wedding • 2026
       </p>
     </main>
   );

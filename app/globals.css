@@ -24,3 +24,21 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@font-face {
+  font-family: 'FC-Coldwell-Bridges';
+  src: url('/fonts/FC-Coldwell-Bridges.otf') format('opentype');
+  /* Đổi .ttf thành .woff2 hoặc .otf nếu định dạng file của bạn khác */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'FC-Arcittya-Begatri';
+  src: url('/fonts/FC-Arcittya-Begatri.otf') format('opentype');
+  /* Đổi .ttf thành .woff2 hoặc .otf nếu định dạng file của bạn khác */
+  variable : '--font-arcittya';
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
