@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+totrongnghia-wedding-931972abce88.json
+.env.local
