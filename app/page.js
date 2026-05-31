@@ -1,65 +1,133 @@
-import Image from "next/image";
+'use client';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
-export default function Home() {
+export default function HomePage() {
+  // Cấu hình Ngày Cưới của hai bạn để chạy bộ đếm ngược (Định dạng: YYYY-MM-DD)
+  const weddingDate = '2026-10-18T11:00:00'; 
+
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const difference = +new Date(weddingDate) - +new Date();
+      let timeLeftSample = {};
+
+      if (difference > 0) {
+        timeLeftSample = {
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        };
+        setTimeLeft(timeLeftSample);
+      }
+    };
+
+    const timer = setInterval(calculateTimeLeft, 1000);
+    return () => clearInterval(timer);
+  }, [weddingDate]);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-[#FAF9F6] text-[#333333] flex flex-col items-center justify-between font-sans">
+      
+      {/* 1. HERO SECTION - Tổng quan phần đầu trang */}
+      <section className="relative w-full flex-1 flex flex-col items-center justify-center text-center px-4 pt-20 pb-12">
+        {/* Vòng hoa hoặc họa tiết trang trí phía trên tiêu đề */}
+        <div className="text-[#D4AF37] text-3xl mb-4 animate-pulse">✨</div>
+        
+        <p className="text-xs uppercase tracking-[0.3em] text-[#888888] mb-3 font-medium">
+          Welcome to Our Wedding
+        </p>
+        
+        {/* Tên cô dâu chú rể sử dụng Font Playfair Display */}
+        <h1 
+          className="text-5xl md:text-7xl text-[#D4AF37] my-4 leading-tight"
+          style={{ fontFamily: "var(--font-playfair), serif" }}
+        >
+          Trọng Nghĩa <br />
+          <span className="text-3xl md:text-4xl block my-2 text-[#FFB7B2] font-light">&amp;</span>
+          Thu Thảo
+        </h1>
+
+        <p className="text-sm italic text-[#666666] max-w-sm mt-2">
+          "Hành trình hạnh phúc bắt đầu từ lời hẹn ước, thân mời bạn ghé thăm không gian ngày cưới của chúng mình."
+        </p>
+
+        {/* 2. COUNTDOWN TIMER - Bộ đếm ngược thời gian */}
+        <div className="mt-12 bg-white/60 backdrop-blur-sm border border-[#F3E5D8] rounded-2xl p-6 max-w-md w-full shadow-sm">
+          <p className="text-xs uppercase tracking-widest text-[#888888] mb-4 font-semibold">
+            Tiệc Cưới Sẽ Diễn Ra Sau
           </p>
+          <div className="grid grid-cols-4 gap-2 text-center">
+            <div className="bg-[#FFF5F5] rounded-xl p-3">
+              <span className="block text-2xl font-bold text-[#FFB7B2]">{timeLeft.days}</span>
+              <span className="text-[10px] uppercase tracking-wider text-gray-400">Ngày</span>
+            </div>
+            <div className="bg-[#FFF5F5] rounded-xl p-3">
+              <span className="block text-2xl font-bold text-[#FFB7B2]">{timeLeft.hours}</span>
+              <span className="text-[10px] uppercase tracking-wider text-gray-400">Giờ</span>
+            </div>
+            <div className="bg-[#FFF5F5] rounded-xl p-3">
+              <span className="block text-2xl font-bold text-[#FFB7B2]">{timeLeft.minutes}</span>
+              <span className="text-[10px] uppercase tracking-wider text-gray-400">Phút</span>
+            </div>
+            <div className="bg-[#FFF5F5] rounded-xl p-3">
+              <span className="block text-2xl font-bold text-[#FFB7B2]">{timeLeft.seconds}</span>
+              <span className="text-[10px] uppercase tracking-wider text-gray-400">Giây</span>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      {/* 3. MENU ĐIỀU HƯỚNG NHANH CHO KHÁCH MỜI (Tối ưu Mobile First) */}
+      <section className="w-full max-w-md px-4 pb-16 space-y-4">
+        <p className="text-center text-xs text-gray-400 uppercase tracking-widest mb-2">
+          Khám phá các phân sảnh
+        </p>
+
+        <Link href="/our-story" className="block">
+          <div className="w-full bg-white hover:bg-[#FFF5F5] transition-all border border-[#F3E5D8] rounded-xl p-4 flex items-center justify-between group shadow-sm active:scale-[0.98]">
+            <div className="text-left">
+              <h3 className="font-serif text-lg text-[#D4AF37] group-hover:text-[#FFB7B2] transition-colors">
+                📖 Our Love Story
+              </h3>
+              <p className="text-xs text-gray-400 mt-1">Xem album ảnh cưới & hành trình yêu nhau</p>
+            </div>
+            <span className="text-[#D4AF37] text-sm group-hover:translate-x-1 transition-transform">➔</span>
+          </div>
+        </Link>
+
+        <Link href="/send-wish" className="block">
+          <div className="w-full bg-white hover:bg-[#FFF5F5] transition-all border border-[#F3E5D8] rounded-xl p-4 flex items-center justify-between group shadow-sm active:scale-[0.98]">
+            <div className="text-left">
+              <h3 className="font-serif text-lg text-[#D4AF37] group-hover:text-[#FFB7B2] transition-colors">
+                ✍️ Send Wishes & Photo
+              </h3>
+              <p className="text-xs text-gray-400 mt-1">Gửi câu chúc ngọt ngào & chụp ảnh tại tiệc</p>
+            </div>
+            <span className="text-[#D4AF37] text-sm group-hover:translate-x-1 transition-transform">➔</span>
+          </div>
+        </Link>
+
+        <Link href="/wishbook" className="block">
+          <div className="w-full bg-white hover:bg-[#FFF5F5] transition-all border border-[#F3E5D8] rounded-xl p-4 flex items-center justify-between group shadow-sm active:scale-[0.98]">
+            <div className="text-left">
+              <h3 className="font-serif text-lg text-[#D4AF37] group-hover:text-[#FFB7B2] transition-colors">
+                ✨ Wedding Wishbook
+              </h3>
+              <p className="text-xs text-gray-400 mt-1">Sảnh trình chiếu tất cả lời chúc của mọi người</p>
+            </div>
+            <span className="text-[#D4AF37] text-sm group-hover:translate-x-1 transition-transform">➔</span>
+          </div>
+        </Link>
+      </section>
+
+      {/* Footer bản quyền nhẹ nhàng */}
+      <footer className="w-full py-4 text-center text-[10px] text-gray-400 uppercase tracking-widest border-t border-gray-100 bg-white/40">
+        Nghĩa &amp; Thương Wedding © 2026
+      </footer>
+
+    </main>
   );
 }
