@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 export default function StoryTimeline({ timelines, isLoading }) {
   return (
-    <section className="px-6 py-20 relative flex flex-col items-center bg-white">
+    <section className="px-6 py-20 relative flex flex-col items-center bg-[#FFFEFC]">
 
       {/* Background Glow */}
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top,_#5F7161_0%,_transparent_60%)] pointer-events-none"></div>
+      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_top,_#C9A227_0%,_transparent_70%)] pointer-events-none"></div>
 
       <div className="max-w-5xl w-full relative z-10">
 
@@ -56,7 +56,7 @@ export default function StoryTimeline({ timelines, isLoading }) {
           <div className="relative pt-10 pb-20">
 
             {/* Timeline Line */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#5F7161]/40 to-transparent -translate-x-1/2"></div>
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[#C9A227]/20 to-transparent -translate-x-1/2"></div>
 
             {timelines.map((item, index) => {
               const isEven = index % 2 === 0;
@@ -74,7 +74,7 @@ export default function StoryTimeline({ timelines, isLoading }) {
                       isEven ? 'md:pl-12' : 'md:pr-12'
                     }`}
                   >
-                    <div className="relative p-3 bg-white shadow-[0_20px_50px_rgba(95,113,97,0.15)] border border-[#C9A227]/30 transform transition-transform duration-700 hover:scale-[1.02] group-hover:rotate-1">
+                    <div className="relative p-3 bg-white shadow-[0_10px_30px_rgba(201,162,39,0.08)] border border-[#C9A227]/30 transform transition-transform duration-700 hover:scale-[1.02] group-hover:rotate-1">
 
                       <div className="absolute inset-4 border border-white z-10 pointer-events-none"></div>
 
@@ -92,7 +92,7 @@ export default function StoryTimeline({ timelines, isLoading }) {
                     </div>
 
                     {/* Glow */}
-                    <div className="absolute -z-10 top-6 left-6 w-full h-full bg-[#5F7161]/20 blur-3xl rounded-full"></div>
+                    <div className="absolute -z-10 top-6 left-6 w-full h-full bg-[#C9A227]/10 blur-[80px] rounded-full"></div>
                   </div>
 
                   {/* Center Icon */}
