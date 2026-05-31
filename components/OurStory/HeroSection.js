@@ -43,7 +43,7 @@ export default function HeroSection() {
         <div className="w-24 h-px bg-[#E6D6A8] mb-4"></div>
 
         <p className="text-[#F8F6F1] text-sm md:text-base tracking-[0.25em] font-light">
-          18 . 10 . 2026
+          Gặp gỡ yêu đương và được bên nhau
         </p>
       </div>
 

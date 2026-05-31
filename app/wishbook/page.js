@@ -67,7 +67,7 @@ export default function WishbookPage() {
         </div>
         <p className="text-sm text-[#5F7161]/70 font-light leading-relaxed px-4">
           Nơi lưu giữ những thông điệp đong đầy yêu thương và khoảnh khắc kỷ
-          niệm của tất cả quý quan khách dành cho Minh Hiếu &amp; Thảo Tiên.
+          niệm của tất cả quý quan khách dành cho Trọng Nghĩa &amp; Thu Thảo.
         </p>
       </div>
 
@@ -160,7 +160,7 @@ overflow-hidden
 
                 {/* Thời gian khách gửi lời nhắn */}
                 <div className="text-right text-[10px] text-[#5F7161]/40 tracking-wide pt-3 border-t border-[#C9A227]/10">
-                   {item.thoi_gian}
+                  {item.thoi_gian}
                 </div>
               </div>
             ))}
@@ -169,8 +169,10 @@ overflow-hidden
       </div>
 
       {/* Chân trang thanh tao đồng bộ màu chữ dark [source: 1] */}
-      <footer className="w-full text-center text-[9px] t
-      ext-[#5F7161]/40 font-medium uppercase tracking-[0.4em] mt-20 relative z-10 border-t border-[#C9A227]/10 pt-4">
+      <footer
+        className="w-full text-center text-[9px] t
+      ext-[#5F7161]/40 font-medium uppercase tracking-[0.4em] mt-20 relative z-10 border-t border-[#C9A227]/10 pt-4"
+      >
         Trọng Nghĩa &amp; Thu Thảo Wedding • 2026
       </footer>
     </main>
