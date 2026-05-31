@@ -1,29 +1,35 @@
-import { NextResponse } from 'next/server';
-import { getGoogleSheet } from '@/lib/googleSheets';
+import { getGoogleSheet } from "@/lib/googleSheets";
+import { NextResponse } from "next/server";
 
-// API xử lý khi Client gửi dữ liệu RSVP lên
 export async function POST(request) {
   try {
-    const { slug, status, note } = await request.json();
+    const { slug, status } = await request.json();
+
+    // Kết nối Google Sheets
     const doc = await getGoogleSheet();
-    const sheet = doc.sheetsByTitle['DanhSachKhach']; // Tên Tab trong Google Sheets
+    const sheet = doc.sheetsByTitle["DanhSachKhach"];
     const rows = await sheet.getRows();
 
-    // Tìm dòng có slug khớp với khách mời
-    const guestRow = rows.find(row => row.get('slug') === slug);
+    // Tìm đúng người khách đang xem thiệp thông qua slug
+    const guest = rows.find((row) => row.get("slug") === slug);
 
-    if (!guestRow) {
-      return NextResponse.json({ success: false, message: 'Không tìm thấy khách mời.' }, { status: 404 });
+    if (!guest) {
+      return NextResponse.json(
+        { error: "Không tìm thấy khách mời" },
+        { status: 404 },
+      );
     }
 
-    // Cập nhật trạng thái RSVP và ghi chú vào Sheets
-    guestRow.set('trang_thai_rsvp', status);
-    guestRow.set('ghi_chu', note);
-    await guestRow.save();
+    // Cập nhật cột "trang_thai" và lưu lại
+    guest.set("trang_thai", status);
+    await guest.save();
 
-    return NextResponse.json({ success: true, message: 'Xác nhận RSVP thành công!' });
+    return NextResponse.json(
+      { success: true, message: "Đã cập nhật thành công!" },
+      { status: 200 },
+    );
   } catch (error) {
-    console.error(error);
-    return NextResponse.json({ success: false, message: 'Lỗi server.' }, { status: 500 });
+    console.error("Lỗi cập nhật RSVP:", error);
+    return NextResponse.json({ error: "Lỗi hệ thống" }, { status: 500 });
   }
 }
