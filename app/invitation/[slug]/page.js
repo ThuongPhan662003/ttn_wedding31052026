@@ -30,9 +30,9 @@ export default async function InvitationPage({ params }) {
         <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border border-[#F3E5D8] text-center">
           
           {/* Tiêu đề lãng mạn - Font chữ viết tay cổ điển */}
-          <h1 className="font-serif text-4xl md:text-5xl text-[#D4AF37] mb-6">
-            Wedding Invitation
-          </h1>
+          <h1 className="text-4xl md:text-5xl text-[#D4AF37] mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
+  Wedding Invitation
+</h1>
           
           <div className="mb-8">
             <p className="text-sm uppercase tracking-widest text-gray-400 mb-2">Trân trọng kính mời</p>
