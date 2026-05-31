@@ -2,9 +2,8 @@ import { getGoogleSheet } from "@/lib/googleSheets";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-// NHÚNG COMPONENT NÚT BẤM VÀO ĐÂY:
+// 1. NHÚNG CÁC COMPONENT VÀO ĐÂY:
 import RSVPButtons from "@/components/Invitation/RSVPButtons";
-
 export const revalidate = 0;
 
 export default async function InvitationPage({ params }) {
@@ -24,11 +23,8 @@ export default async function InvitationPage({ params }) {
 
     const tenKhach = guest._rawData[1] || guest.get("ten_khach");
     const nhomKhach = guest._rawData[2] || guest.get("nhom_khach");
-
-    // LẤY TRẠNG THÁI HIỆN TẠI TỪ GOOGLE SHEETS
     const trangThaiRsvp = guest.get("trang_thai") || "";
 
-    // Cấu hình nội dung
     const weddingConfig = {
       nha_trai: {
         title: "NHÀ TRAI",
@@ -73,7 +69,6 @@ export default async function InvitationPage({ params }) {
 
           <div className="flex flex-col items-center my-5">
             <div className="text-4xl text-[#C9A227]">🌿</div>
-
             <div className="w-12 h-px bg-[#C9A227]/30 mt-3"></div>
           </div>
 
@@ -88,7 +83,6 @@ export default async function InvitationPage({ params }) {
             >
               Trọng Nghĩa
             </h1>
-
             <div className="flex flex-col items-center my-4">
               <span
                 className="text-4xl md:text-5xl text-[#C9A227]"
@@ -96,10 +90,8 @@ export default async function InvitationPage({ params }) {
               >
                 囍
               </span>
-
               <div className="w-12 h-px bg-[#C9A227]/30 mt-2"></div>
             </div>
-
             <h1
               className="text-5xl md:text-6xl text-[#5F7161]"
               style={{ fontFamily: "var(--font-playfair), serif" }}
@@ -119,13 +111,10 @@ export default async function InvitationPage({ params }) {
             <p className="text-[11px] uppercase tracking-[0.3em] text-[#5F7161]/60 mb-4 text-center">
               Xác nhận tham dự
             </p>
-
-            {/* THAY THẾ KHỐI HTML CŨ BẰNG COMPONENT NÚT BẤM (Truyền 2 dữ liệu vào) */}
             <RSVPButtons slug={slug} initialStatus={trangThaiRsvp} />
           </div>
-          <div className="w-10 h-[1px] mx-auto bg-wedding-gold/50 mb-6" />
 
-          {/* ... (Đoạn mã phía dưới chứa ngày tháng và địa điểm bạn giữ nguyên) ... */}
+          <div className="w-10 h-[1px] mx-auto bg-wedding-gold/50 mb-6" />
 
           <div className="flex items-center justify-center gap-5 mb-8 w-full">
             <p className="text-[10px] uppercase tracking-widest text-wedding-dark/70 w-[70px] text-right font-medium">
@@ -159,13 +148,11 @@ export default async function InvitationPage({ params }) {
           </div>
 
           <div className="space-y-3 relative z-20">
-            {/* Mình đã loại bỏ nút Xác nhận bên dưới để gom chung vào khối 2 nút phía trên cho đỡ rối */}
-
             <Link
-              href={`/send-wish?slug=${slug}`}
+              href={`/our-story`}
               className="block text-center border border-[#C9A227]/30 py-4 rounded-xl text-[#C9A227] uppercase tracking-[0.25em] text-xs hover:bg-[#C9A227]/5 transition-all shadow-sm"
             >
-              Gửi Lời Chúc
+              Mở thiệp
             </Link>
           </div>
         </div>
@@ -173,6 +160,8 @@ export default async function InvitationPage({ params }) {
         <p className="text-[8px] text-wedding-dark/50 font-medium uppercase tracking-[0.4em] mt-8 relative z-20">
           Trọng Nghĩa & Thu Thảo Wedding • 2026
         </p>
+
+        {/* Đã xóa 1 nút dư thừa, chỉ giữ lại 1 nút Floating duy nhất */}
       </main>
     );
   } catch (error) {
