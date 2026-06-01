@@ -1,11 +1,10 @@
 export default function HeroSection() {
   return (
     <section className="relative w-full h-[85vh] md:h-screen flex flex-col items-center justify-center overflow-hidden">
-      
       {/* Ảnh nền */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop"
+          src="/images/hero-section.jpg"
           alt="Wedding Cover"
           className="w-full h-full object-cover brightness-75"
         />
@@ -19,9 +18,8 @@ export default function HeroSection() {
 
       {/* Nội dung */}
       <div className="relative z-10 text-center flex flex-col items-center animate-fade-in px-4">
-        
         <p className="text-[#F8F6F1] text-[10px] md:text-xs tracking-[0.4em] uppercase mb-6 font-medium">
-          We are getting married
+          Ngày chung đôi
         </p>
 
         <h1
@@ -30,10 +28,7 @@ export default function HeroSection() {
         >
           Trọng Nghĩa
           <br className="md:hidden" />
-          <span className="hidden md:inline text-[#E6D6A8]">
-            {" "}
-            &{" "}
-          </span>
+          <span className="hidden md:inline text-[#E6D6A8]"> & </span>
           <span className="md:hidden text-[#E6D6A8] text-4xl block my-2">
             &
           </span>
@@ -42,8 +37,8 @@ export default function HeroSection() {
 
         <div className="w-24 h-px bg-[#E6D6A8] mb-4"></div>
 
-        <p className="text-[#F8F6F1] text-sm md:text-base tracking-[0.25em] font-light">
-          Gặp gỡ yêu đương và được bên nhau
+        <p className="font-dancing text-[#F8F6F1] text-lg md:text-2xl tracking-[0.25em] font-light ">
+          Gặp gỡ, yêu đương và được bên nhau...
         </p>
       </div>
 

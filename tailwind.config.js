@@ -27,9 +27,15 @@ module.exports = {
       },
 
       fontFamily: {
+        // Xóa bớt 1 dòng playfair bị trùng
+        inter: ["var(--font-inter)", "sans-serif"],
         playfair: ["var(--font-playfair)", "serif"],
         arcittya: ["FC-Arcittya-Begatri", "serif"],
         coldwell: ["FC-Coldwell-Bridges", "serif"],
+        "great-vibes": ["var(--font-great-vibes)", "cursive"],
+        // Sửa lại chỗ này cho khớp với biến CSS ở layout.js của bạn
+        dancing: ["var(--font-dancing)", "cursive"],
+        caveat: ["var(--font-caveat)", "cursive"],
       },
 
       boxShadow: {
@@ -39,8 +45,9 @@ module.exports = {
 
       backgroundImage: {
         weddingGradient: "linear-gradient(180deg,#fff 0%,#faf8f3 100%)",
-
         redGlow: "radial-gradient(circle,#8B1E2D22 0%,transparent 70%)",
+        // Bổ sung thêm Green Glow nếu bạn muốn làm hiệu ứng vệt sáng xanh cho tone xanh lá
+        greenGlow: "radial-gradient(circle,#66785F22 0%,transparent 70%)",
       },
     },
   },
