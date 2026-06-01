@@ -2,7 +2,7 @@ import { getGoogleSheet } from "@/lib/googleSheets";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-// 1. NHÚNG CÁC COMPONENT VÀO ĐÂY:
+// NHÚNG CÁC COMPONENT VÀO ĐÂY:
 import RSVPButtons from "@/components/Invitation/RSVPButtons";
 export const revalidate = 0;
 
@@ -53,125 +53,174 @@ export default async function InvitationPage({ params }) {
     const currentInfo = weddingConfig[nhomKhach] || weddingConfig["nha_trai"];
 
     return (
-      <main className="min-h-screen bg-wedding-bg flex flex-col items-center p-4 md:p-8 antialiased relative overflow-hidden">
-        <div className="absolute top-[-5%] right-[-15%] w-[350px] h-[350px] bg-wedding-pastel rounded-full blur-[80px] opacity-80 pointer-events-none" />
-        <div className="absolute bottom-[-5%] left-[-15%] w-[400px] h-[400px] bg-wedding-pink rounded-full blur-[80px] opacity-30 pointer-events-none" />
+      <main className="min-h-screen bg-[#FAF8F3] flex flex-col items-center p-4 md:p-8 antialiased relative overflow-hidden">
+        {/* Nền đổ hạt sáng đỏ (Glow) */}
+        <div className="absolute top-[-10%] right-[-20%] w-[600px] h-[600px] bg-wedding-redGlow pointer-events-none opacity-60" />
+        <div className="absolute bottom-[-10%] left-[-20%] w-[500px] h-[500px] bg-wedding-redGlow pointer-events-none opacity-30" />
 
+        {/* Nút quay lại sảnh */}
         <Link
           href="/"
-          className="mb-6 mt-2 flex items-center gap-1.5 text-[10px] font-medium tracking-[0.2em] uppercase text-wedding-dark/60 hover:text-wedding-gold transition-colors relative z-20"
+          className="mb-8 mt-2 flex items-center gap-2 text-[10px] font-medium tracking-[0.25em] uppercase text-[#2D3748]/50 hover:text-[#8B1E2D] transition-colors duration-300 relative z-20"
         >
           ← Sảnh đón tiếp
         </Link>
 
-        <div className="relative w-full max-w-lg bg-white rounded-[40px] border border-[#C9A227]/20 shadow-[0_30px_80px_rgba(95,113,97,0.08)] px-8 py-14 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#C9A227]/5 to-transparent" />
+        {/* Khung bao ngoài thiệp */}
+        <div className="relative w-full max-w-md mx-auto animate-openInvitation z-10 px-2">
+          {/* THIỆP CHÍNH: Nền Đỏ Nhung truyền thống [#8B1E2D] và bo góc cửa sổ Arch */}
+          <div
+            className="relative bg-[#8B1E2D] border-2 border-[#C9A227] shadow-2xl overflow-hidden p-6 md:p-8 flex flex-col items-center text-center"
+            style={{
+              borderRadius: "240px 240px 32px 32px",
+            }}
+          >
+            {/* Đường viền đôi mạ vàng tinh xảo chạy dọc khung cửa sổ */}
+            <div
+              className="absolute inset-2 border border-[#E6D6A8]/30 pointer-events-none"
+              style={{ borderRadius: "232px 232px 24px 24px" }}
+            />
+            <div
+              className="absolute inset-3 border border-[#C9A227]/40 pointer-events-none"
+              style={{ borderRadius: "228px 228px 20px 20px" }}
+            />
 
-          <div className="flex flex-col items-center my-5">
-            <div className="text-4xl text-[#C9A227]">🌿</div>
-            <div className="w-12 h-px bg-[#C9A227]/30 mt-3"></div>
-          </div>
+            {/* Vệt sáng đổ từ đỉnh cửa sổ xuống */}
+            <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#E6D6A8]/15 to-transparent pointer-events-none" />
 
-          <p className="text-[9px] uppercase tracking-[0.3em] font-medium text-wedding-dark/70 mb-8 text-center">
-            Sự hiện diện của bạn là niềm vinh hạnh
-          </p>
-
-          <div className="text-center mb-10">
-            <h1
-              className="text-5xl md:text-6xl text-[#5F7161]"
-              style={{ fontFamily: "var(--font-playfair), serif" }}
-            >
-              Trọng Nghĩa
-            </h1>
-            <div className="flex flex-col items-center my-4">
-              <span
-                className="text-4xl md:text-5xl text-[#C9A227]"
-                style={{ fontFamily: "serif" }}
-              >
+            {/* Chữ Hỷ Vàng Kim */}
+            <div className="flex flex-col items-center mt-12 mb-6 relative z-10">
+              <span className="text-5xl text-[#C9A227] font-playfair tracking-normal drop-shadow-sm">
                 囍
               </span>
-              <div className="w-12 h-px bg-[#C9A227]/30 mt-2"></div>
+              <div className="w-12 h-[1px] bg-[#C9A227]/50 mt-3" />
             </div>
-            <h1
-              className="text-5xl md:text-6xl text-[#5F7161]"
-              style={{ fontFamily: "var(--font-playfair), serif" }}
-            >
-              Thu Thảo
-            </h1>
-          </div>
 
-          <p className="text-[9px] uppercase tracking-[0.25em] font-medium text-wedding-dark/70 mb-6 text-center">
-            Trân trọng kính mời <br />
-            <span className="text-xl text-wedding-gold block mt-3 capitalize font-playfair">
-              {tenKhach}
-            </span>
-          </p>
-
-          <div className="mt-8 mb-8 relative z-20">
-            <p className="text-[11px] uppercase tracking-[0.3em] text-[#5F7161]/60 mb-4 text-center">
-              Xác nhận tham dự
+            {/* Slogan chữ vàng nhạt */}
+            <p className="text-[9px] uppercase tracking-[0.35em] font-medium text-[#E6D6A8]/80 mb-10 max-w-[280px] leading-relaxed">
+              Sự hiện diện của bạn là niềm vinh hạnh lớn cho gia đình chúng tôi
             </p>
-            <RSVPButtons slug={slug} initialStatus={trangThaiRsvp} />
-          </div>
 
-          <div className="w-10 h-[1px] mx-auto bg-wedding-gold/50 mb-6" />
+            {/* Tên cô dâu chú rể màu Vàng Kim [#C9A227] rực rỡ */}
+            <div className="space-y-1 mb-10 relative z-10 w-full">
+              <h1 className="text-5xl md:text-6xl text-[#C9A227] font-coldwell leading-tight font-normal px-4 drop-shadow-md">
+                Trọng Nghĩa
+              </h1>
 
-          <div className="flex items-center justify-center gap-5 mb-8 w-full">
-            <p className="text-[10px] uppercase tracking-widest text-wedding-dark/70 w-[70px] text-right font-medium">
-              {currentInfo.dayOfWeek}
-            </p>
-            <div className="w-[1px] h-12 bg-wedding-gold/40" />
-            <div className="flex flex-col items-center justify-center min-w-[60px]">
-              <span className="text-4xl text-wedding-dark leading-none font-playfair">
-                {currentInfo.day}
-              </span>
-              <span className="text-[8px] uppercase tracking-widest text-wedding-dark/70 mt-2 font-medium">
-                {currentInfo.monthYear}
+              <div className="flex flex-col items-center my-4">
+                <span className="text-[#E6D6A8] text-lg opacity-90">❦</span>
+                <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#C9A227]/50 to-transparent" />
+              </div>
+
+              <h1 className="text-5xl md:text-6xl text-[#C9A227] font-coldwell leading-tight font-normal px-4 drop-shadow-md">
+                Thu Thảo
+              </h1>
+            </div>
+
+            {/* Khung Mời Khách: Nền tối tiệp màu thiệp, viền vàng kim làm nổi bật Tên */}
+            <div className="mb-10 w-full bg-black/20 backdrop-blur-sm py-4 px-6 rounded-2xl border border-[#C9A227]/30 relative z-10">
+              <p className="text-[10px] tracking-[0.25em] uppercase text-[#E6D6A8]/70 font-medium mb-2">
+                Trân trọng kính mời
+              </p>
+              <span className="block text-2xl md:text-3xl text-[#C9A227] font-playfair font-semibold tracking-wide">
+                {tenKhach}
               </span>
             </div>
-            <div className="w-[1px] h-12 bg-wedding-gold/40" />
-            <p className="text-[10px] uppercase tracking-widest text-wedding-dark/70 w-[70px] text-left font-medium">
-              {currentInfo.hour}
-            </p>
-          </div>
 
-          <div className="text-center mb-8 relative z-20">
-            <p className="text-3xl text-wedding-gold mb-2 ">
-              {currentInfo.locationName}
-            </p>
-            <p className="text-[11px] uppercase tracking-[0.25em] font-medium text-wedding-dark mb-2">
-              {currentInfo.city}
-            </p>
-            <p className="text-[10px] text-wedding-dark/70 max-w-[240px] mx-auto leading-relaxed">
-              {currentInfo.address}
-            </p>
-          </div>
+            {/* Khối RSVP */}
+            <div className="w-full mb-10 relative z-20">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-[#E6D6A8]/80 mb-4 font-medium">
+                Xác nhận tham dự
+              </p>
+              <div className="scale-95 origin-center">
+                <RSVPButtons slug={slug} initialStatus={trangThaiRsvp} />
+              </div>
+            </div>
 
-          <div className="space-y-3 relative z-20">
-            <Link
-              href={`/our-story`}
-              className="block text-center border border-[#C9A227]/30 py-4 rounded-xl text-[#C9A227] uppercase tracking-[0.25em] text-xs hover:bg-[#C9A227]/5 transition-all shadow-sm"
-            >
-              Mở thiệp
-            </Link>
+            {/* Thanh ngăn cách hoa văn vàng */}
+            <div className="w-20 h-[1px] bg-gradient-to-r from-transparent via-[#C9A227]/50 to-transparent mb-8" />
+
+            {/* Thông tin ngày giờ - Toàn bộ chữ chuyển sang Vàng Kim */}
+            <div className="flex items-center justify-center gap-4 mb-10 w-full relative z-10 text-[#C9A227]">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#E6D6A8]/90 w-[75px] text-right font-medium font-arcittya">
+                {currentInfo.dayOfWeek}
+              </p>
+
+              <div className="w-[1px] h-12 bg-[#C9A227]/30" />
+
+              <div className="flex flex-col items-center justify-center min-w-[75px]">
+                <span className="text-4xl text-[#E6D6A8] font-playfair font-light leading-none">
+                  {currentInfo.day}
+                </span>
+                <span className="text-[8px] uppercase tracking-[0.15em] text-[#C9A227]/70 mt-2 font-semibold">
+                  {currentInfo.monthYear}
+                </span>
+              </div>
+
+              <div className="w-[1px] h-12 bg-[#C9A227]/30" />
+
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#E6D6A8]/90 w-[75px] text-left font-medium font-arcittya">
+                {currentInfo.hour}
+              </p>
+            </div>
+
+            {/* Địa điểm tổ chức tiệc */}
+            <div className="text-center mb-12 relative z-10 max-w-[280px]">
+              <p className="text-2xl text-[#C9A227] font-playfair italic mb-2 font-medium">
+                {currentInfo.locationName}
+              </p>
+              <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#E6D6A8] mb-3">
+                {currentInfo.city}
+              </p>
+              <p className="text-[11px] text-[#E6D6A8]/80 font-light leading-relaxed">
+                {currentInfo.address}
+              </p>
+            </div>
+
+            {/* Nút bấm ĐẶC BIỆT: Nền Vàng Kim rực rỡ, Chữ Đỏ Nhung tương phản */}
+            <div className="w-full relative z-20 mt-auto pb-4">
+              <Link
+                href="/our-story"
+                className="
+                  block
+                  text-center
+                  py-3.5
+                  px-8
+                  rounded-full
+                  bg-[#C9A227]
+                  text-[#8B1E2D]
+                  uppercase
+                  tracking-[0.25em]
+                  text-[11px]
+                  font-bold
+                  shadow-md
+                  hover:bg-[#E6D6A8]
+                  hover:shadow-2xl
+                  hover:-translate-y-0.5
+                  transition-all
+                  duration-300
+                "
+              >
+                Mở câu chuyện tình yêu
+              </Link>
+            </div>
           </div>
         </div>
 
-        <p className="text-[8px] text-wedding-dark/50 font-medium uppercase tracking-[0.4em] mt-8 relative z-20">
+        {/* Footer */}
+        <p className="text-[8px] text-[#2D3748]/40 font-medium uppercase tracking-[0.4em] mt-8 mb-4 relative z-20">
           Trọng Nghĩa & Thu Thảo Wedding • 2026
         </p>
-
-        {/* Đã xóa 1 nút dư thừa, chỉ giữ lại 1 nút Floating duy nhất */}
       </main>
     );
   } catch (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-wedding-bg p-4 text-wedding-dark">
-        <div className="max-w-xs w-full py-8 px-4 border border-wedding-gold/40 text-center space-y-2 bg-wedding-pastel/30 backdrop-blur-sm">
-          <h2 className="text-base tracking-wide text-wedding-gold font-playfair">
+      <div className="min-h-screen flex items-center justify-center bg-[#FAF8F3] p-4 text-[#2D3748]">
+        <div className="max-w-xs w-full py-8 px-5 border-2 border-[#C9A227] text-center space-y-3 bg-[#8B1E2D] rounded-2xl shadow-2xl">
+          <h2 className="text-sm tracking-widest text-[#C9A227] font-playfair font-semibold uppercase">
             Đang kết nối dữ liệu
           </h2>
-          <p className="text-[11px] text-wedding-dark/70 font-light">
+          <p className="text-[11px] text-[#E6D6A8]/80 font-light leading-relaxed">
             Hệ thống đang đồng bộ dữ liệu thiệp. Vui lòng tải lại trang sau ít
             giây!
           </p>

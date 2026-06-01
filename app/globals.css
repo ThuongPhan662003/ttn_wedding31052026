@@ -1,44 +1,126 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf8f3;
+  --foreground: #2d3748;
+
+  /* Wedding Palette */
+  --wedding-bg: #faf8f3;
+  --wedding-cream: #f8f6f1;
+
+  --wedding-gold: #c9a227;
+  --wedding-gold-light: #e6d6a8;
+
+  --wedding-green: #66785f;
+  --wedding-green-light: #a8bba2;
+
+  /* Màu đỏ cưới */
+  --wedding-red: #8b1e2d;
+  --wedding-red-light: #b33a4a;
+  --wedding-rose: #f7e8ea;
+
+  --wedding-dark: #2d3748;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-arcittya: "FC-Arcittya-Begatri";
+  --font-coldwell: "FC-Coldwell-Bridges";
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--wedding-bg);
+  color: var(--wedding-dark);
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Coldwell */
 @font-face {
-  font-family: 'FC-Coldwell-Bridges';
-  src: url('/fonts/FC-Coldwell-Bridges.otf') format('opentype');
-  /* Đổi .ttf thành .woff2 hoặc .otf nếu định dạng file của bạn khác */
-  font-weight: normal;
-  font-style: normal;
+  font-family: "FC-Coldwell-Bridges";
+  src: url("/fonts/FC-Coldwell-Bridges.otf") format("opentype");
   font-display: swap;
 }
+
+/* Arcittya */
 @font-face {
-  font-family: 'FC-Arcittya-Begatri';
-  src: url('/fonts/FC-Arcittya-Begatri.otf') format('opentype');
-  /* Đổi .ttf thành .woff2 hoặc .otf nếu định dạng file của bạn khác */
-  variable : '--font-arcittya';
-  font-weight: normal;
-  font-style: normal;
+  font-family: "FC-Arcittya-Begatri";
+  src: url("/fonts/FC-Arcittya-Begatri.otf") format("opentype");
   font-display: swap;
+}
+
+/* Petal Animation */
+
+@keyframes petalFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-petal {
+  animation: petalFall 12s linear infinite;
+}
+/* ==================================================== */
+/* CẤU HÌNH HIỆU ỨNG MỞ THIỆP (ANIMATION KEYFRAMES)    */
+/* ==================================================== */
+
+@keyframes openInvitation {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(60px);
+    filter: blur(4px);
+  }
+
+  60% {
+    opacity: 0.8;
+    transform: scale(1.02) translateY(-5px);
+    filter: blur(0px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* Class kích hoạt hiệu ứng - Thêm cubic-bezier để chuyển động mượt như lụa */
+.animate-openInvitation {
+  animation: openInvitation 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Hiệu ứng rơi cánh hoa (Nếu bạn cần dùng sau này) */
+@keyframes petalFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-petal {
+  animation: petalFall 12s linear infinite;
 }

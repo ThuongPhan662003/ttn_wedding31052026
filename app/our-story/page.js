@@ -1,14 +1,18 @@
 "use client";
 import { useState, useEffect } from "react";
-// Nếu thư mục components của bạn nằm cùng cấp với app, hãy dùng đường dẫn @/components/...
 import MusicPlayer from "@/components/OurStory/MusicPlayer";
 import HeroSection from "@/components/OurStory/HeroSection";
 import StoryTimeline from "@/components/OurStory/StoryTimeline";
 import WeddingEvents from "@/components/OurStory/WeddingEvents";
 import Link from "next/link";
+
 export default function OurStoryPage() {
   const [timelines, setTimelines] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Trạng thái mở thiệp
+  const [isOpened, setIsOpened] = useState(false);
+  const [isAnimationDone, setIsAnimationDone] = useState(false);
 
   useEffect(() => {
     const fetchStory = async () => {
@@ -29,58 +33,136 @@ export default function OurStoryPage() {
     fetchStory();
   }, []);
 
+  const handleOpenEnvelope = () => {
+    if (isOpened) return;
+    setIsOpened(true);
+    // Chờ hiệu ứng trượt cửa hoàn tất (1.2s) rồi tháo hoàn toàn màn che
+    setTimeout(() => {
+      setIsAnimationDone(false);
+    }, 1200);
+  };
+
   return (
-    <main className="min-h-screen bg-[#FAF9F6] text-[#333333] relative font-sans">
-      {/* 1. Trình phát nhạc (Truyền link bài hát vào biến src) */}
-      <MusicPlayer src="/musics/nen.mp3" />
-
-      {/* 2. Ảnh bìa tràn viền */}
-      <HeroSection />
-      <WeddingEvents />
-      {/* 3. Dòng thời gian (Truyền dữ liệu và trạng thái loading xuống) */}
-      <StoryTimeline timelines={timelines} isLoading={isLoading} />
-      {/* ========================================== */}
-      {/* 5. NÚT ĐIỀU HƯỚNG GỬI LỜI CHÚC (MỚI THÊM)   */}
-      {/* ========================================== */}
-      <section className="w-full flex flex-col items-center justify-center pb-24 px-6 relative z-10 animate-fade-in">
-        {/* Đường gạch ngang trang trí */}
-        <div className="w-16 h-px bg-[#C9A227]/50 mb-8" />
-
-        <h3
-          className="text-2xl text-[#C9A227] mb-3 italic"
-          style={{ fontFamily: "var(--font-playfair), serif" }}
+    <main className="min-h-screen bg-[#FAF9F6] text-[#333333] relative font-sans overflow-x-hidden">
+      {/* 1. MÀN HÌNH MỞ THIỆP HAI CÁNH (GATEFOLD ENVELOPE) */}
+      {!isAnimationDone && (
+        <div
+          className={`fixed inset-0 z-50 flex pointer-events-none transition-all duration-1000 ${
+            isOpened ? "opacity-0" : "opacity-100"
+          }`}
         >
-          Lưu giữ khoảnh khắc
-        </h3>
+          {/* Cánh cửa bên TRÁI */}
+          <div
+            className={`w-1/2 h-full bg-[#8B1E2D] border-r border-[#C9A227]/30 pointer-events-auto transition-transform duration-[1200ms] ease-in-out relative flex flex-col items-end justify-center select-none shadow-2xl ${
+              isOpened ? "-translate-x-full" : "translate-x-0"
+            }`}
+          >
+            <div className="absolute inset-4 md:inset-8 border-y border-l border-[#C9A227]/20 pointer-events-none" />
 
-        <p className="text-xs text-[#5F7161]/70 mb-8 max-w-sm text-center leading-relaxed font-light">
-          Hãy cùng chúng mình lưu giữ những lời chúc ngọt ngào và những kỷ niệm
-          tuyệt vời nhất trong ngày trọng đại này nhé!
-        </p>
+            <div className="mr-6 md:mr-12 text-right text-[#C9A227] pr-4 md:pr-0">
+              <span className="block text-4xl md:text-5xl font-coldwell italic leading-none text-[#E6D6A8]">
+                Save
+              </span>
+              <span className="block text-xs md:text-sm tracking-[0.4em] uppercase font-medium mt-2">
+                The Date
+              </span>
+            </div>
+          </div>
 
-        <Link
-          href="/send-wish"
-          className="
-            flex items-center gap-3
-            px-10 py-4 
-            bg-[#5F7161] text-white 
-            rounded-xl text-xs font-semibold uppercase tracking-[0.25em] 
-            shadow-xl shadow-[#5F7161]/20 
-            hover:bg-[#4E5F50] hover:-translate-y-1 hover:shadow-2xl
-            transition-all duration-300 active:scale-[0.98]
-          "
-        >
-          <span className="text-lg">✍️</span>
-          Gửi Lời Chúc Ngay
-        </Link>
+          {/* Cánh cửa bên PHẢI */}
+          <div
+            className={`w-1/2 h-full bg-[#8B1E2D] border-l border-[#C9A227]/30 pointer-events-auto transition-transform duration-[1200ms] ease-in-out relative flex flex-col items-start justify-center select-none shadow-2xl ${
+              isOpened ? "translate-x-full" : "translate-x-0"
+            }`}
+          >
+            <div className="absolute inset-4 md:inset-8 border-y border-r border-[#C9A227]/20 pointer-events-none" />
+          </div>
 
-        <Link
-          href="/"
-          className="mt-8 text-[10px] uppercase tracking-widest text-[#5F7161]/50 hover:text-[#C9A227] border-b border-transparent hover:border-[#C9A227] transition-all pb-0.5"
-        >
-          Trở Về Sảnh Chính
-        </Link>
-      </section>
+          {/* TRỤC GIỮA: CON DẤU SÁP & NHÀNH HOA */}
+          <div
+            onClick={handleOpenEnvelope}
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-auto cursor-pointer flex flex-col items-center transition-all duration-[800ms] ${
+              isOpened
+                ? "opacity-0 scale-75 pointer-events-none blur-sm"
+                : "opacity-100 scale-100"
+            }`}
+          >
+            <div className="w-12 h-24 mb-[-24px] relative opacity-90 animate-pulse">
+              <div className="absolute inset-0 flex justify-center text-xl text-[#E6D6A8]/70">
+                🌾
+              </div>
+            </div>
+
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#731825] border-2 border-[#C9A227] shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center justify-center relative active:scale-95 transition-transform">
+              <div className="absolute inset-1.5 border border-[#C9A227]/40 rounded-full" />
+              <span className="text-3xl md:text-4xl text-[#C9A227] font-playfair select-none">
+                囍
+              </span>
+            </div>
+
+            <span className="text-[9px] uppercase tracking-[0.3em] text-[#E6D6A8] mt-4 bg-[#8B1E2D]/80 py-1 px-3 rounded-full border border-[#C9A227]/20 backdrop-blur-sm">
+              Chạm để mở
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* 2. NỘI DUNG CHÍNH CỦA TRANG LOVE STORY */}
+      <div
+        className={`transition-all duration-1000 delay-300 ${isOpened ? "opacity-100 filter-none" : "opacity-40 blur-sm"}`}
+      >
+        {/* Trình phát nhạc */}
+        <MusicPlayer src="/musics/nen.mp3" />
+
+        {/* Ảnh bìa tràn viền */}
+        <HeroSection />
+
+        {/* Các sự kiện cưới */}
+        <WeddingEvents />
+
+        {/* Dòng thời gian */}
+        <StoryTimeline timelines={timelines} isLoading={isLoading} />
+
+        {/* Nút điều hướng gửi lời chúc */}
+        <section className="w-full flex flex-col items-center justify-center pb-24 px-6 relative z-10">
+          <div className="w-16 h-px bg-[#C9A227]/50 mb-8" />
+
+          <h3
+            className="text-2xl text-[#C9A227] mb-3 italic"
+            style={{ fontFamily: "var(--font-playfair), serif" }}
+          >
+            Lưu giữ khoảnh khắc
+          </h3>
+
+          <p className="text-xs text-[#2D3748]/70 mb-8 max-w-sm text-center leading-relaxed font-light">
+            Hãy cùng chúng mình lưu giữ những lời chúc ngọt ngào và những kỷ
+            niệm tuyệt vời nhất trong ngày trọng đại này nhé!
+          </p>
+
+          <Link
+            href="/send-wish"
+            className="
+              flex items-center gap-3
+              px-10 py-4 
+              bg-[#8B1E2D] text-white 
+              rounded-xl text-xs font-semibold uppercase tracking-[0.25em] 
+              border border-[#C9A227]/30
+              shadow-xl hover:bg-[#B33A4A] hover:-translate-y-1
+              transition-all duration-300 active:scale-[0.98]
+            "
+          >
+            <span className="text-lg">✍️</span>
+            Gửi Lời Chúc Ngay
+          </Link>
+
+          <Link
+            href="/"
+            className="mt-8 text-[10px] uppercase tracking-widest text-[#2D3748]/50 hover:text-[#8B1E2D] border-b border-transparent hover:border-[#8B1E2D] transition-all pb-0.5"
+          >
+            Trở Về Sảnh Chính
+          </Link>
+        </section>
+      </div>
     </main>
   );
 }
