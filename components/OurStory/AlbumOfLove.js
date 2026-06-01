@@ -1,0 +1,88 @@
+export default function AlbumOfLove() {
+  return (
+    <section className="w-full py-12 flex flex-col items-center bg-[#FAF9F6] relative overflow-hidden">
+      {/* KHỐI NỘI DUNG CHỮ */}
+      <div className="w-full max-w-md mx-auto px-4 flex flex-col items-center">
+        {/* Châm ngôn nhỏ */}
+        <p className="text-[11px] sm:text-xs text-center text-[#555555]/80 max-w-[340px] leading-relaxed mb-10 font-light px-2">
+          Bước vào chương mới của cuộc đời, nơi tình yêu trở thành mái ấm, và
+          hạnh phúc mang tên “chúng ta”
+        </p>
+
+        {/* Tiêu đề ALBUM Of */}
+        <div className="relative flex items-baseline justify-center w-full mb-6 pl-8">
+          <span
+            className="text-4xl sm:text-5xl tracking-[0.15em] text-[#3D4A3E] font-light font-serif transition-all"
+            style={{ fontFamily: "'Times New Roman', Times, serif" }}
+          >
+            ALBUM
+          </span>
+          <span
+            className="text-5xl sm:text-6xl text-[#3D4A3E] transition-all relative z-10"
+            style={{
+              // Sử dụng chuỗi font chữ viết tay nghệ thuật hoàng gia
+              fontFamily:
+                "'Great Vibes', 'Clicker Script', 'Alex Brush', 'Brush Script MT', cursive",
+              transform: "translateY(6px) rotate(-5deg)", // Điều chỉnh độ hạ thấp và hơi nghiêng nhẹ để tạo nét tự nhiên
+              marginLeft: "-8px", // Khoảng cách nhích nhẹ để đè lên chữ ALBUM một cách tinh tế
+              textTransform: "none", // Giữ nguyên chữ 'Of' (O viết hoa, f viết thường) để nét chữ uốn lượn đẹp nhất
+            }}
+          >
+            Of
+          </span>
+        </div>
+
+        {/* Khối chữ LOVE - Đã sửa lỗi bóp méo ảnh và giữ nguyên tỉ lệ gốc */}
+        <div className="relative w-full flex justify-center items-center select-none mb-14 px-1 overflow-hidden">
+          <h2
+            className="
+      text-[120px] 
+      xs:text-[135px] 
+      sm:text-[160px] 
+      md:text-[185px] 
+      font-serif font-black 
+      tracking-[-0.07em] 
+      text-center uppercase leading-none w-full flex justify-center transition-all duration-300
+    "
+            style={{
+              backgroundImage: "url('/images/hero-wedding.jpg')",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              fontWeight: "950",
+              /* ======================================================= */
+              backgroundSize: "cover", // Giữ đúng tỷ lệ ảnh gốc, tự động phủ kín và KHÔNG bị bóp méo
+              backgroundPosition: "center 15%", // Tập trung lấy từ phần đầu/phần trên của bức ảnh trở xuống
+              backgroundRepeat: "no-repeat",
+              /* ======================================================= */
+            }}
+          >
+            LOVE
+          </h2>
+        </div>
+      </div>
+
+      {/* KHỐI ẢNH COVER TRÀN VIỀN PHÍA DƯỚI */}
+      <div className="relative w-full left-0 right-0">
+        {/* Nhành hoa trang trí - Sửa lỗi Broken Image bằng cách thêm onError tự ẩn nếu thiếu file */}
+        <div className="absolute left-4 sm:left-6 md:left-[12%] lg:left-[22%] top-[-35px] w-14 sm:w-16 h-24 sm:h-32 opacity-90 pointer-events-none z-20 transition-all">
+          {/* <img
+            src="/images/white-flower.png"
+            alt="" // Bỏ chữ trong alt để nếu lỗi đường dẫn, trình duyệt không hiện chữ đè lên giao diện
+            onError={(e) => {
+              e.target.style.display = "none";
+            }} // Mẹo: Nếu không tìm thấy file, tự động ẩn đi hoàn toàn chứ không hiện icon lỗi vuông nữa
+            className="w-full h-full object-contain"
+          /> */}
+        </div>
+
+        {/* Ảnh lớn bên dưới */}
+        <div
+          className="w-full h-[50dvh] md:h-[65dvh] bg-cover bg-center transition-all duration-500 shadow-sm"
+          style={{
+            backgroundImage: "url('/images/album-cover.jpg')",
+          }}
+        />
+      </div>
+    </section>
+  );
+}

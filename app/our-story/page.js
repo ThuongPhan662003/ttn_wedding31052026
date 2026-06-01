@@ -4,6 +4,8 @@ import MusicPlayer from "@/components/OurStory/MusicPlayer";
 import HeroSection from "@/components/OurStory/HeroSection";
 import StoryTimeline from "@/components/OurStory/StoryTimeline";
 import WeddingEvents from "@/components/OurStory/WeddingEvents";
+import AlbumOfLove from "@/components/OurStory/AlbumOfLove";
+import QuoteSection from "@/components/OurStory/QuoteSection";
 import Link from "next/link";
 
 export default function OurStoryPage() {
@@ -79,6 +81,8 @@ export default function OurStoryPage() {
           </div>
 
           {/* TRỤC GIỮA: CON DẤU SÁP & NHÀNH HOA */}
+          {/* TRỤC GIỮA: CON DẤU SÁP & NHÀNH HOA */}
+          {/* TRỤC GIỮA: CON DẤU SÁP & NHÀNH HOA */}
           <div
             onClick={handleOpenEnvelope}
             className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-auto cursor-pointer flex flex-col items-center transition-all duration-[800ms] ${
@@ -87,20 +91,27 @@ export default function OurStoryPage() {
                 : "opacity-100 scale-100"
             }`}
           >
-            <div className="w-12 h-24 mb-[-24px] relative opacity-90 animate-pulse">
-              <div className="absolute inset-0 flex justify-center text-xl text-[#E6D6A8]/70">
-                🌾
-              </div>
+            {/* NHÀNH HOA SẤY KHÔ - Đã phóng to (w-24 h-36) để bự và rõ nét hơn */}
+            <div className="w-24 h-36 relative opacity-95 animate-pulse pointer-events-none select-none z-20">
+              <img
+                src="/images/flower-branch.png"
+                alt="Flower branch decoration"
+                className="w-full h-full object-contain object-bottom"
+              />
             </div>
 
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#731825] border-2 border-[#C9A227] shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center justify-center relative active:scale-95 transition-transform">
+            {/* Khối Con Dấu Sáp 3D Hoàng Gia - mt-[-32px] để hoa cắm sâu vào tâm dấu sáp */}
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#731825] border-2 border-[#C9A227] shadow-[0_10px_30px_rgba(0,0,0,0.5)] flex items-center justify-center relative active:scale-95 transition-transform z-10 mt-[-32px]">
+              {/* Viền sáp gồ ghề giả lập thủ công */}
               <div className="absolute inset-1.5 border border-[#C9A227]/40 rounded-full" />
+              {/* Hoa văn chìm trong con dấu */}
               <span className="text-3xl md:text-4xl text-[#C9A227] font-playfair select-none">
                 囍
               </span>
             </div>
 
-            <span className="text-[9px] uppercase tracking-[0.3em] text-[#E6D6A8] mt-4 bg-[#8B1E2D]/80 py-1 px-3 rounded-full border border-[#C9A227]/20 backdrop-blur-sm">
+            {/* Dòng chữ hướng dẫn nhỏ nhẹ nhàng */}
+            <span className="text-[9px] uppercase tracking-[0.3em] text-[#E6D6A8] mt-4 bg-[#8B1E2D]/80 py-1 px-3 rounded-full border border-[#C9A227]/20 backdrop-blur-sm z-10">
               Chạm để mở
             </span>
           </div>
@@ -116,7 +127,9 @@ export default function OurStoryPage() {
 
         {/* Ảnh bìa tràn viền */}
         <HeroSection />
-
+        {/* COMPONENT ALBUM ẢNH NGHỆ THUẬT VỪA TÁCH */}
+        <AlbumOfLove />
+        <QuoteSection />
         {/* Các sự kiện cưới */}
         <WeddingEvents />
 
