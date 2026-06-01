@@ -20,40 +20,37 @@ export default function AlbumOfLove() {
           <span
             className="text-5xl sm:text-6xl text-[#3D4A3E] transition-all relative z-10"
             style={{
-              // Sử dụng chuỗi font chữ viết tay nghệ thuật hoàng gia
               fontFamily:
                 "'Great Vibes', 'Clicker Script', 'Alex Brush', 'Brush Script MT', cursive",
-              transform: "translateY(6px) rotate(-5deg)", // Điều chỉnh độ hạ thấp và hơi nghiêng nhẹ để tạo nét tự nhiên
-              marginLeft: "-8px", // Khoảng cách nhích nhẹ để đè lên chữ ALBUM một cách tinh tế
-              textTransform: "none", // Giữ nguyên chữ 'Of' (O viết hoa, f viết thường) để nét chữ uốn lượn đẹp nhất
+              transform: "translateY(6px) rotate(-5deg)",
+              marginLeft: "-8px",
+              textTransform: "none",
             }}
           >
             Of
           </span>
         </div>
 
-        {/* Khối chữ LOVE - Đã sửa lỗi bóp méo ảnh và giữ nguyên tỉ lệ gốc */}
+        {/* Khối chữ LOVE */}
         <div className="relative w-full flex justify-center items-center select-none mb-14 px-1 overflow-hidden">
           <h2
             className="
-      text-[120px] 
-      xs:text-[135px] 
-      sm:text-[160px] 
-      md:text-[185px] 
-      font-serif font-black 
-      tracking-[-0.07em] 
-      text-center uppercase leading-none w-full flex justify-center transition-all duration-300
-    "
+              text-[120px] 
+              xs:text-[135px] 
+              sm:text-[160px] 
+              md:text-[185px] 
+              font-serif font-black 
+              tracking-[-0.07em] 
+              text-center uppercase leading-none w-full flex justify-center transition-all duration-300
+            "
             style={{
               backgroundImage: "url('/images/hero-wedding.jpg')",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               fontWeight: "950",
-              /* ======================================================= */
-              backgroundSize: "cover", // Giữ đúng tỷ lệ ảnh gốc, tự động phủ kín và KHÔNG bị bóp méo
-              backgroundPosition: "center 15%", // Tập trung lấy từ phần đầu/phần trên của bức ảnh trở xuống
+              backgroundSize: "cover",
+              backgroundPosition: "center 15%",
               backgroundRepeat: "no-repeat",
-              /* ======================================================= */
             }}
           >
             LOVE
@@ -63,21 +60,17 @@ export default function AlbumOfLove() {
 
       {/* KHỐI ẢNH COVER TRÀN VIỀN PHÍA DƯỚI */}
       <div className="relative w-full left-0 right-0">
-        {/* Nhành hoa trang trí - Sửa lỗi Broken Image bằng cách thêm onError tự ẩn nếu thiếu file */}
+        {/* Nhành hoa trang trí */}
         <div className="absolute left-4 sm:left-6 md:left-[12%] lg:left-[22%] top-[-35px] w-14 sm:w-16 h-24 sm:h-32 opacity-90 pointer-events-none z-20 transition-all">
-          {/* <img
-            src="/images/white-flower.png"
-            alt="" // Bỏ chữ trong alt để nếu lỗi đường dẫn, trình duyệt không hiện chữ đè lên giao diện
-            onError={(e) => {
-              e.target.style.display = "none";
-            }} // Mẹo: Nếu không tìm thấy file, tự động ẩn đi hoàn toàn chứ không hiện icon lỗi vuông nữa
-            className="w-full h-full object-contain"
-          /> */}
+          {/* Giữ nguyên phần bọc hoa của bạn */}
         </div>
 
-        {/* Ảnh lớn bên dưới */}
+        {/* 
+          Ảnh lớn bên dưới: Đã đổi sang bg-right md:bg-center 
+          để trên điện thoại sẽ ghim chặt vào lề phải, giúp góc phải của ảnh xuất hiện trọn vẹn.
+        */}
         <div
-          className="w-full h-[50dvh] md:h-[65dvh] bg-cover bg-center transition-all duration-500 shadow-sm"
+          className="w-full h-[50dvh] md:h-[65dvh] bg-cover bg-right md:bg-center transition-all duration-500 shadow-sm"
           style={{
             backgroundImage: "url('/images/album-cover.jpg')",
           }}

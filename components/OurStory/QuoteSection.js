@@ -1,15 +1,22 @@
 export default function QuoteSection() {
   return (
     <section
-      className="relative w-full min-h-screen bg-cover bg-center flex flex-col justify-between p-6 md:p-12 lg:p-20 overflow-hidden select-none"
+      className="
+        relative w-full min-h-screen 
+        bg-cover 
+        bg-right md:bg-center /* Trên mobile ưu tiên lấy góc phải, lên desktop quay về căn giữa */
+        flex flex-col justify-between 
+        p-6 md:p-12 lg:p-20 
+        overflow-hidden select-none
+      "
       style={{
-        backgroundImage: "url('/images/wedding-forest.jpg')", // <-- Thay bằng ảnh rừng sâu của bạn (image_efe019.jpg)
+        backgroundImage: "url('/images/wedding-forest.jpg')", // <-- File ảnh rừng sâu của bạn (image_efe019.jpg)
       }}
     >
-      {/* Lớp overlay shadow chuẩn điện ảnh để cân bằng sáng và giúp chữ nổi bật trên mọi màn hình */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent max-md:bg-gradient-to-b max-md:from-black/30 max-md:via-transparent max-md:to-black/55 pointer-events-none" />
+      {/* Lớp overlay shadow: Trên mobile chuyển từ màu đen sang gradient dịu hơn để không làm tối mặt dâu rể ở bên phải */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent max-md:bg-gradient-to-b max-md:from-black/40 max-md:via-transparent max-md:to-black/20 pointer-events-none" />
 
-      {/* PHẦN TRÊN: Chữ mờ phóng đại phóng to theo tỉ lệ màn hình (Responsive Text) */}
+      {/* PHẦN TRÊN: Chữ mờ FOREST OF LOVE */}
       <div className="relative z-10 w-full pt-6 md:pt-10">
         <h2
           className="text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-extrabold uppercase tracking-widest text-white/10 leading-none pointer-events-none font-serif select-none transition-all duration-300"
@@ -23,8 +30,8 @@ export default function QuoteSection() {
         </h2>
       </div>
 
-      {/* PHẦN DƯỚI: Nội dung câu nói tự động co giãn linh hoạt */}
-      <div className="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md text-left space-y-4 md:space-y-6 pb-8 md:pb-4">
+      {/* PHẦN DƯỚI: Nội dung câu nói - Thu nhỏ max-w trên mobile một chút để tránh đè chữ lên người dâu rể */}
+      <div className="relative z-10 w-full max-w-[260px] sm:max-w-sm md:max-w-md text-left space-y-4 md:space-y-6 pb-8 md:pb-4">
         {/* Biểu tượng dấu nháy kép */}
         <span className="text-4xl md:text-5xl text-[#E6D6A8]/60 font-serif block leading-none">
           “
