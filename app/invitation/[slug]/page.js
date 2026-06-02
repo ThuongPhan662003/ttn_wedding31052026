@@ -19,7 +19,7 @@ export default async function InvitationPage({ params }) {
     // Khớp chính xác với cấu trúc bảng "guests" lưu danh sách khách mời của bạn
     const guest = await db.collection("guests").findOne({ slug: slug });
 
-    // Nếu không tồn tại slug này trong MongoDB, kích hoạt trang 404 không tìm thấy khách
+    // Nếu không tồn tại slug này trong MongoDB, kích hoạt trang 404 không tìm thấy khách.
     if (!guest) {
       return notFound();
     }
