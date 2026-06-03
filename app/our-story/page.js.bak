@@ -1,0 +1,91 @@
+"use client";
+import { useState } from "react";
+import InteractiveIntro from "@/components/InteractiveIntro";
+import RosePetals from "@/components/RosePetals";
+import FloatingMusic from "@/components/FloatingMusic";
+import FamilyIntro from "@/components/FamilyIntro";
+import RSVPForm from "@/components/RSVPForm";
+import WeddingEvents from "@/components/WeddingEvents";
+import PhotoGallery from "@/components/PhotoGallery";
+
+export default function WeddingPage() {
+  const [hasOpened, setHasOpened] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <main className="relative min-h-screen bg-[#fcfaf6] overflow-x-hidden">
+      {/* 1. MÀN HÌNH BÌA PHONG BÌ ĐỎ (Mặc định che phủ toàn màn hình khi chưa mở) */}
+      <InteractiveIntro onOpened={() => setHasOpened(true)} />
+
+      {/* 2. NỘI DUNG CHÍNH CỦA THIỆP MỜI (Chỉ xuất hiện sau khi nhấn nút mở) */}
+      {hasOpened && (
+        <div className="animate-[fadeIn_1.2s_ease-in-out]">
+          {/* ĐÃ KÍCH HOẠT: Lớp Canvas xử lý hiệu ứng cánh hoa rơi xuyên suốt nền */}
+          <RosePetals />
+
+          {/* Trình phát nhạc nền và nút cuộn trang */}
+          <FloatingMusic src="/musics/nen.mp3" targetSectionId="rsvp-section" />
+
+          {/* CHÚ Ý: Bọc các section trong lớp relative z-10 để hoa rơi nổi lên trên nền mượt mà */}
+          <div className="relative z-10">
+            {/* THIỆP MỜI TRẮNG TRỒI LÊN (Mockup miệng thư như ảnh đính kèm) */}
+            <section className="w-full max-w-md mx-auto pt-16 px-4 text-center select-none">
+              <span className="font-serif text-xs tracking-widest text-gray-400 uppercase">
+                THIỆP
+              </span>
+              <h2 className="font-serif text-3xl text-[#8b1c25] italic my-1">
+                Mời Cưới
+              </h2>
+              <div className="text-xl my-2 text-[#d4af37]">囍</div>
+
+              {/* Thư mục ảnh cưới đại diện nằm trong khung miệng thư đỏ */}
+              <div className="relative mt-6 max-w-[320px] mx-auto bg-[#8b1c25] p-2 pt-16 rounded-b-xl shadow-2xl border border-white/10">
+                {/* Đường cắt tam giác miệng thư cách điệu phía trên */}
+                <div
+                  className="absolute top-0 inset-x-0 h-12 bg-[#70121a]"
+                  style={{ clipPath: "polygon(0 0, 100% 0, 50% 100%)" }}
+                />
+                <div className="bg-white p-1 rounded shadow-inner">
+                  <img
+                    src="/images/wedding-main.jpg"
+                    alt="Ngọc Anh & Liu Bo"
+                    className="w-full object-cover h-72"
+                  />
+                </div>
+              </div>
+
+              {/* Tên cặp đôi chính */}
+              <div className="mt-6 font-serif text-xl text-gray-800 flex items-center justify-center space-x-2">
+                <span className="font-semibold">Ngọc Anh</span>
+                <span className="text-red-500 text-sm animate-pulse">❤️</span>
+                <span className="font-semibold">
+                  刘博{" "}
+                  <span className="text-xs font-sans text-gray-400 font-normal">
+                    (Liu Bo)
+                  </span>
+                </span>
+              </div>
+              <p className="text-sm text-gray-400 font-serif mt-2 tracking-widest">
+                24.01.2026
+              </p>
+            </section>
+
+            {/* Component Thông tin phụ mẫu hai bên (Responsive chia cột trên PC) */}
+            <FamilyIntro />
+
+            {/* Component Lịch tháng & Card thông tin chi tiết sự kiện cưới */}
+            <WeddingEvents />
+
+            {/* Component Album ảnh lưới gom cụm đối xứng thông minh trên PC */}
+            <PhotoGallery />
+
+            {/* Component Form phản hồi, lời chúc & Nút popup mừng cưới */}
+            <div id="rsvp-section">
+              <RSVPForm onOpenDonation={() => setIsModalOpen(true)} />
+            </div>
+          </div>
+        </div>
+      )}
+    </main>
+  );
+}

@@ -44,7 +44,7 @@ export default function AlbumOfLove() {
               text-center uppercase leading-none w-full flex justify-center transition-all duration-300
             "
             style={{
-              backgroundImage: "url('/images/hero-wedding.jpg')",
+              backgroundImage: "url('/images/hero-wedding1.jpg')",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               fontWeight: "950",
