@@ -63,10 +63,10 @@ export default function OurStoryPage() {
 
             <div className="mr-6 md:mr-12 text-right text-[#C9A227] pr-4 md:pr-0">
               <span className="block text-4xl md:text-5xl font-coldwell italic leading-none text-[#E6D6A8]">
-                Save
+                Ngày
               </span>
               <span className="block text-xs md:text-sm tracking-[0.4em] uppercase font-medium mt-2">
-                The Date
+                Chung Đôi
               </span>
             </div>
           </div>
@@ -135,6 +135,26 @@ export default function OurStoryPage() {
 
         {/* Dòng thời gian */}
         <StoryTimeline timelines={timelines} isLoading={isLoading} />
+        {/* SECTION 3: LỊCH TRÌNH THỜI GIAN ĐÁM CƯỚI */}
+        {/* <section
+          id="wedding-timeline-section"
+          className="max-w-xl mx-auto px-4 py-12 border-t border-[#a8bba2]/20 scroll-mt-6"
+        >
+          <div className="text-center mb-10">
+            <span className="text-xl text-[#c9a227] opacity-60">❦</span>
+            <h2 className="font-playfair text-2xl font-bold tracking-wide text-[#66785f] mt-1">
+              Thời Gian Mời & Lịch Trình Tiệc
+            </h2>
+            <p className="font-inter text-[10px] uppercase tracking-widest text-[#2d3748]/50 mt-1">
+              Wedding Day Timeline
+            </p>
+          </div>
+
+          <WeddingTimeline />
+        </section>*/}
+
+        {/* THANH ĐIỀU HƯỚNG GÓC TRÁI DƯỚI */}
+        {/* <FloatingMenu targetSectionId="wedding-timeline-section" /> */}
 
         {/* Nút điều hướng gửi lời chúc */}
         <section className="w-full flex flex-col items-center justify-center pb-24 px-6 relative z-10">

@@ -37,7 +37,7 @@ export default function HeroSection() {
 
         <div className="w-24 h-px bg-[#E6D6A8] mb-4"></div>
 
-        <p className="font-dancing text-[#F8F6F1] text-lg md:text-2xl tracking-[0.25em] font-light ">
+        <p className="font-medium text-[#F8F6F1] text-lg md:text-2xl tracking-[0.25em] font-light ">
           Gặp gỡ, yêu đương và được bên nhau...
         </p>
       </div>

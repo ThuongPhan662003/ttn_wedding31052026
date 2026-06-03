@@ -127,7 +127,7 @@ export default async function InvitationPage({ params }) {
               <p className="text-[10px] tracking-[0.25em] uppercase text-[#e6d6a8]/70 font-medium mb-2">
                 Trân trọng kính mời
               </p>
-              <span className="block text-2xl md:text-3xl text-[#c9a227] font-playfair font-semibold tracking-wide">
+              <span className="block text-2xl md:text-3xl text-[#c9a227] font-great-vibes font-semibold tracking-wide">
                 {tenKhach}
               </span>
             </div>
@@ -147,7 +147,7 @@ export default async function InvitationPage({ params }) {
 
             {/* Thông tin ngày giờ - Toàn bộ chữ chuyển sang Vàng Kim */}
             <div className="flex items-center justify-center gap-4 mb-10 w-full relative z-10 text-[#c9a227]">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#e6d6a8]/90 w-[75px] text-right font-medium font-arcittya">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#e6d6a8]/90 w-[75px] text-right font-medium">
                 {currentInfo.dayOfWeek}
               </p>
 
@@ -157,14 +157,14 @@ export default async function InvitationPage({ params }) {
                 <span className="text-4xl text-[#e6d6a8] font-playfair font-light leading-none">
                   {currentInfo.day}
                 </span>
-                <span className="text-[8px] uppercase tracking-[0.15em] text-[#c9a227]/70 mt-2 font-semibold">
+                <span className="text-[8px] uppercase tracking-[0.15em] text-[#c9a227]/70 mt-2 font-medium">
                   {currentInfo.monthYear}
                 </span>
               </div>
 
               <div className="w-[1px] h-12 bg-[#c9a227]/30" />
 
-              <p className="text-[10px] uppercase tracking-[0.2em] text-[#e6d6a8]/90 w-[75px] text-left font-medium font-arcittya">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-[#e6d6a8]/90 w-[75px] text-left font-medium">
                 {currentInfo.hour}
               </p>
             </div>
