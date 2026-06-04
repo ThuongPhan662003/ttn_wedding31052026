@@ -11,7 +11,7 @@ export default function RosePetals() {
 
     let animationFrameId;
     let petals = [];
-    const maxPetals = 15;
+    const maxPetals = 10;
 
     const img = new Image();
     img.src = "/images/rose1.png"; // 👈 ảnh cánh hoa
@@ -28,7 +28,7 @@ export default function RosePetals() {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * -canvas.height;
-        this.size = Math.random()  * 10 + 8;; // ảnh cần lớn hơn ellipse
+        this.size = Math.random() * 10 + 8; // ảnh cần lớn hơn ellipse
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1.2 + 0.8;
         this.opacity = Math.random() * 0.5 + 0.4;

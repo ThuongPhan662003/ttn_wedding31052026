@@ -6,7 +6,7 @@ export default function WeddingEvents() {
       title: "Lễ Vu Quy",
       time: "11:00 - Thứ Sáu",
       date: "03.07.2026",
-      lunar: "06 Tháng 12 Âm lịch",
+      lunar: "19 Tháng 05 Âm lịch",
       place:
         "Tại Tư Gia Nhà Gái, Đường 28 - Khối Hà My Tây, Phường Điện Bàn Đông, TP.Đà Nẵng",
     },
@@ -14,7 +14,7 @@ export default function WeddingEvents() {
       title: "Lễ Tân Hôn",
       time: "10:30 - Thứ Sáu",
       date: "10.07.2026",
-      lunar: "07 Tháng 12 Âm lịch",
+      lunar: "26 Tháng 05 Âm lịch",
       place:
         "Nhà hàng Công Đoàn, Tầng trệt 53 Độc Lập, P.Tuy Hòa, Tỉnh Đắk Lắk",
     },

@@ -65,6 +65,20 @@ export default function RSVPForm({ onOpenDonation }) {
     setIsSubmitting(true);
 
     try {
+      const rsvpResponse = await fetch("/api/rsvp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          slug: guestId,
+          status: formData.attendance,
+        }),
+      });
+
+      if (!rsvpResponse.ok) {
+        throw new Error("RSVP failed");
+      }
       const response = await fetch("/api/wishes", {
         method: "POST",
         headers: {
