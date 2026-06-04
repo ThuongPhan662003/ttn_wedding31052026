@@ -1,8 +1,12 @@
 "use client";
 "use client";
 import { useState } from "react";
-
+import { useSearchParams } from "next/navigation";
 export default function RSVPForm({ onOpenDonation }) {
+  const searchParams = useSearchParams();
+
+  const guestId = searchParams.get("slug");
+  const [imageBase64, setImageBase64] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     attendance: "yes",
@@ -10,20 +14,94 @@ export default function RSVPForm({ onOpenDonation }) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const handleImageChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
 
+    if (!file.type.startsWith("image/")) {
+      alert("Vui lòng chỉ chọn tệp tin hình ảnh.");
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      const img = new Image();
+
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+
+        const MAX_WIDTH = 400;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > MAX_WIDTH) {
+          height *= MAX_WIDTH / width;
+          width = MAX_WIDTH;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, width, height);
+
+        const compressedBase64 = canvas.toDataURL("image/jpeg", 0.4);
+
+        setImageBase64(compressedBase64);
+      };
+
+      img.src = event.target.result;
+    };
+
+    reader.readAsDataURL(file);
+  };
   const handleSubmit = async (e) => {
+    if (!guestId) {
+      alert("Không tìm thấy mã khách mời.");
+      return;
+    }
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Giả lập gửi API lưu lời chúc vào Database
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSuccess(true);
-      setFormData({ name: "", attendance: "yes", wishes: "" });
-      setTimeout(() => setSuccess(false), 4000);
-    }, 1500);
-  };
+    try {
+      const response = await fetch("/api/wishes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ma_khach_moi: guestId,
+          ten_khach: formData.name,
+          loi_chuc: formData.wishes,
+          hinh_anh_url: imageBase64,
+          tham_du: formData.attendance,
+        }),
+      });
 
+      if (!response.ok) {
+        throw new Error("Submit failed");
+      }
+
+      setSuccess(true);
+
+      setFormData({
+        name: "",
+        attendance: "yes",
+        wishes: "",
+      });
+
+      setImageBase64("");
+
+      setTimeout(() => {
+        setSuccess(false);
+      }, 4000);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section className="w-full bg-[#8b1c25] text-white py-16 px-4">
       <div className="max-w-3xl mx-auto bg-[#70121a] p-6 md:p-10 rounded-2xl border border-[#d4af37]/20 shadow-2xl">
@@ -90,7 +168,28 @@ export default function RSVPForm({ onOpenDonation }) {
               className="w-full bg-[#821821] text-white placeholder-red-300/40 border border-[#d4af37]/30 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37] transition-colors resize-none"
             />
           </div>
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium tracking-wide uppercase text-red-100">
+              Hình ảnh kỷ niệm (Tùy chọn)
+            </label>
 
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="w-full bg-[#821821] text-white border border-[#d4af37]/30 rounded-xl px-4 py-3 text-sm"
+            />
+
+            {imageBase64 && (
+              <div className="mt-3">
+                <img
+                  src={imageBase64}
+                  alt="Preview"
+                  className="w-24 h-24 object-cover rounded-lg border border-[#d4af37]/30"
+                />
+              </div>
+            )}
+          </div>
           {/* Khối Thông Báo Thành Công Trực Quan */}
           {success && (
             <div className="text-xs bg-emerald-600/30 text-emerald-200 py-3 px-4 rounded-xl border border-emerald-500/30 text-center animate-fadeIn">

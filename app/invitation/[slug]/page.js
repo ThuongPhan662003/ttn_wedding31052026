@@ -185,7 +185,7 @@ export default async function InvitationPage({ params }) {
             {/* Nút bấm: Nền Vàng Kim rực rỡ, Chữ Xanh Lá tương tương phản */}
             <div className="w-full relative z-20 mt-auto pb-4">
               <Link
-                href="/our-story"
+                href={`/our-story?slug=${slug}`}
                 className="
                   block
                   text-center
