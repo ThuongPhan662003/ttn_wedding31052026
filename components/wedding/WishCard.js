@@ -19,7 +19,7 @@ export default function WishCard({ item }) {
         <div className="mt-3">
           <img
             src={item.hinh_anh_url}
-            className="w-full max-h-52 object-cover rounded-lg border border-[#d4af37]/20"
+            className="w-full h-auto object-cover rounded-lg border border-[#d4af37]/20"
           />
         </div>
       )}

@@ -130,11 +130,6 @@ export default function InteractiveIntro({ onOpened }) {
         </p>
       </div>
       {/* DECORATIVE BOTTOM FLOWER */}
-      <img
-        src="/images/space.png"
-        alt=""
-        className="absolute -bottom-11 left-1/2 -translate-x-1/2 w-[40%] md:w-[90%] pointer-events-none z-50"
-      />
     </div>
   );
 }

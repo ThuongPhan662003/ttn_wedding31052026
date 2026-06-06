@@ -25,8 +25,8 @@ export default function WishList() {
       <div className="relative border border-[#8b1c25]/40 rounded-xl bg-[#fffaf5] shadow-md">
         {/* HEADER (optional đẹp hơn) */}
         <div className="sticky top-0 z-10 bg-[#fffaf5] border-b border-[#d4af37]/30 px-4 py-3">
-          <h2 className="text-[#8b1c25] font-serif text-lg tracking-wide">
-            Lời Chúc
+          <h2 className="text-[#8b1c25] font-great-vibes text-2xl tracking-wide">
+            Sổ lưu bút
           </h2>
         </div>
 

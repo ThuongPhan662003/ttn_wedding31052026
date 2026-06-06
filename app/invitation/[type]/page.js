@@ -85,7 +85,7 @@ export default async function InvitationPage({ params }) {
             borderRadius: "240px 240px 32px 32px",
           }}
         >
-          <img
+          {/* <img
             src="/images/hoa_baby.png"
             alt=""
             className="
@@ -102,7 +102,7 @@ export default async function InvitationPage({ params }) {
                 pointer-events-none
                 z-20
             "
-          />
+          /> */}
           <div
             className="absolute inset-2 border border-[#e6d6a8]/30"
             style={{
@@ -150,21 +150,29 @@ export default async function InvitationPage({ params }) {
           </div>
 
           <div className="w-full bg-black/15 rounded-2xl border border-[#c9a227]/30 p-5 mb-4 text-white">
-            <p className="text-xl md:text-2xl uppercase tracking-[0.15em] font-bold font-serif text-white">
-              <span className="text-xl md:text-xl uppercase font-serif">
-                {currentInfo.dayOfWeek}
-              </span>
+            <div className="text-center">
+              {/* DAY OF WEEK + HOUR */}
+              <div className="flex items-center justify-center gap-3 text-[#e6d6a8]">
+                <span className="text-lg md:text-xl font-serif tracking-wide">
+                  {currentInfo.dayOfWeek}
+                </span>
 
-              <span className="mx-2 text-xl md:text-2xl font-serif">|</span>
+                <span className="text-lg md:text-xl font-serif opacity-70">
+                  |
+                </span>
 
-              <span className="text-xl md:text-xl uppercase font-serif">
-                {currentInfo.hour}
-              </span>
+                <span className="text-lg md:text-xl font-serif italic tracking-wide">
+                  {currentInfo.hour}
+                </span>
+              </div>
 
-              <span className="block mt-2 text-3xl md:text-3xl font-serif">
-                {currentInfo.fullDate}
-              </span>
-            </p>
+              {/* FULL DATE */}
+              <div className="mt-2">
+                <span className="text-3xl md:text-4xl font-great-vibes text-[#c9a227] tracking-wide">
+                  {currentInfo.fullDate}
+                </span>
+              </div>
+            </div>
           </div>
           <div className="w-full mt-6">
             <Link
