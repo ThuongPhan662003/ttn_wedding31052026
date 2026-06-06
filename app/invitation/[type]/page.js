@@ -148,12 +148,7 @@ export default async function InvitationPage({ params }) {
 
           <div className="w-full mt-6">
             <Link
-              href={{
-                pathname: "/our-story",
-                query: {
-                  type: currentInfo.type,
-                },
-              }}
+              href={`/our-story/${currentInfo.type}`}
               className="
     relative z-50
     flex items-center justify-center gap-2
