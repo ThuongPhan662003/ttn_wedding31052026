@@ -116,7 +116,7 @@ export default function RSVPForm({ onOpenDonation }) {
     }
   };
   return (
-    <section className="w-full bg-[#8b1c25] text-white py-16 px-4">
+    <section className="w-full bg-[#8b1c25] text-white py-1 px-4">
       <div className="max-w-3xl mx-auto bg-[#70121a] p-6 md:p-10 rounded-2xl border border-[#d4af37]/20 shadow-2xl">
         {/* Tiêu đề Form */}
         <div className="text-center space-y-2 mb-8">

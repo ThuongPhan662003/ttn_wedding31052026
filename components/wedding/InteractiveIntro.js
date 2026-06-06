@@ -21,7 +21,7 @@ export default function InteractiveIntro({ onOpened }) {
   return (
     <div className="relative w-full max-w-md mx-auto min-h-screen bg-[#fcfaf6] text-center px-3 pt-6 pb-10 select-none overflow-x-hidden">
       {/* HEADER */}
-      <div className=" mb-30 md:mb-14">
+      <div className=" mb-50 md:mb-14">
         {/* KHUNG GÓC TRÁI TRÊN */}
         <img
           src="/images/khung.png"

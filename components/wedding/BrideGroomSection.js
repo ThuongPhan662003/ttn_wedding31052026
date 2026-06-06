@@ -2,7 +2,7 @@
 
 export default function BrideGroomSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-24">
+    <section className="max-w-7xl mx-auto px-6 py-0">
       <div className="text-center mb-14">
         <p className="font-great-vibes text-lg md:text-2xl text-[#c9a227] mb-3">
           Giữa vô vàn cuộc gặp gỡ trong đời, việc tìm thấy một người để thấu

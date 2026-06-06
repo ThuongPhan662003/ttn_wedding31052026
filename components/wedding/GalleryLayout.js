@@ -1,7 +1,7 @@
 'use client";';
 export default function GalleryLayout({ topImage, leftImage, rightImage }) {
   return (
-    <section className="max-w-5xl mx-auto px-4 py-10">
+    <section className="max-w-5xl mx-auto px-4 py-2">
       <div className="grid gap-4">
         {/* Ảnh trên */}
         {topImage && (

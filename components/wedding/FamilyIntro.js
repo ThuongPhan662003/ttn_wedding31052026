@@ -29,7 +29,7 @@ export default function FamilyIntro() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden w-full max-w-5xl mx-auto px-6 py-20"
+      className="relative overflow-hidden w-full max-w-5xl mx-auto px-6 py-8"
     >
       <img
         src="/images/chu_hy_day.png"
@@ -77,7 +77,7 @@ export default function FamilyIntro() {
             <div>Cưới</div>
           </div>
 
-          <div className="w-px h-50 bg-gray-400 mt-3" />
+          <div className="w-px h-10 bg-gray-400 mt-3" />
         </div>
 
         {/* CỘT PHẢI: nội dung */}

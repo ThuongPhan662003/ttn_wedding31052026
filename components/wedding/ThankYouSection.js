@@ -10,7 +10,7 @@ export default function ThankYouSection() {
   absolute
   inset-0
   w-full
-  h-full
+  h-auto
   object-cover
   object-right
   md:object-center
@@ -18,10 +18,10 @@ export default function ThankYouSection() {
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/35" />
+      {/* <div className="absolute inset-0 bg-black/35" /> */}
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center px-6">
+      {/* <div className="relative z-10 h-full flex items-center justify-center px-6">
         <div className="max-w-3xl text-center text-white">
           <h2 className="font-great-vibes text-6xl md:text-8xl text-[#f6e3a1] mb-8">
             Xin Chân Thành Cảm Ơn
@@ -50,7 +50,7 @@ export default function ThankYouSection() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

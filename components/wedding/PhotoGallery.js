@@ -12,10 +12,12 @@ export default function PhotoGallery() {
     "/images/gallery/8.jpg",
     "/images/gallery/9.jpg",
     "/images/gallery/10.jpg",
+    "/images/gallery/11.jpg",
+    "/images/gallery/12.jpg",
   ];
 
   return (
-    <section className="relative w-full bg-[#fcfaf6] py-20 px-4 overflow-hidden">
+    <section className="relative w-full bg-[#fcfaf6] py-8 px-4 overflow-hidden">
       {/* Hoa nền */}
       <img
         src="/images/hoa.png"

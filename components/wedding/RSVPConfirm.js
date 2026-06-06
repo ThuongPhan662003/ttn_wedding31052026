@@ -73,7 +73,7 @@ export default function RSVPConfirm({ onConfirmed, type }) {
     );
   }
   return (
-    <section className="w-full bg-[#8b1c25] text-white py-16 px-4">
+    <section className="w-full bg-[#8b1c25] text-white py-8 px-4">
       {" "}
       <div className="max-w-2xl mx-auto bg-[#70121a] rounded-3xl p-8 md:p-10">
         {" "}
@@ -113,8 +113,6 @@ export default function RSVPConfirm({ onConfirmed, type }) {
             className="w-full rounded-xl bg-[#821821] px-4 py-3 outline-none"
           >
             <option value="yes">💖 Tôi sẽ đến chung vui cùng gia đình</option>
-
-            <option value="maybe">🤍 Tôi sẽ cố gắng sắp xếp tham dự</option>
 
             <option value="no">🌷 Rất tiếc tôi không thể tham dự</option>
           </select>

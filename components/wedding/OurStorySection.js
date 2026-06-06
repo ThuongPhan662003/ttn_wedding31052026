@@ -2,7 +2,7 @@
 import GalleryLayout from "@/components/wedding/GalleryLayout";
 export default function OurStorySection() {
   return (
-    <section className="relative overflow-hidden bg-[#fcfaf6] py-24 px-6">
+    <section className="relative overflow-hidden bg-[#fcfaf6] py-8 px-6">
       {/* Hoa nền */}
       <img
         src="/images/hoa.png"
