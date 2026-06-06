@@ -10,7 +10,33 @@ import {
   Sacramento,
 } from "next/font/google";
 import "./globals.css";
+export const metadata = {
+  title: "Thiệp cưới Thảo ❤️",
+  description: "Trân trọng kính mời bạn tham dự lễ cưới Thảo & ...",
 
+  openGraph: {
+    title: "Thiệp cưới Thảo ❤️",
+    description: "Trân trọng kính mời bạn tham dự lễ cưới",
+    url: "https://thaonghiawedding.vercel.app",
+    siteName: "Wedding Invitation",
+    type: "website",
+    images: [
+      {
+        url: "https://thaonghiawedding.vercel.app/1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Thiệp cưới Thảo",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Thiệp cưới Thảo ❤️",
+    description: "Trân trọng kính mời bạn tham dự lễ cưới",
+    images: ["https://thaonghiawedding.vercel.app/og-image.jpg"],
+  },
+};
 const inter = Inter({
   subsets: ["vietnamese"],
   weight: ["300", "400", "600"],
@@ -35,10 +61,6 @@ const dancing = Dancing_Script({
   variable: "--font-dancing",
 });
 
-export const metadata = {
-  title: "Our Wedding Invitation",
-  description: "Thân mời bạn đến dự đám cưới của chúng mình!",
-};
 const caveat = Caveat({
   subsets: ["vietnamese"],
   weight: ["400", "700"],

@@ -49,7 +49,7 @@ export default function WeddingPageClient({ type }) {
           <PhotoGallery />
           <section
             id="rsvp-section"
-            className="max-w-6xl mx-auto px-4 py-12 grid gap-8 lg:grid-cols-2"
+            className="max-w-6xl mx-auto px-4 py-6 lg:py-8"
           >
             <RSVPConfirm
               type={type}
