@@ -91,7 +91,7 @@ export default async function InvitationPage({ params }) {
             className="
                 absolute
                 top-[440px]
-                left-[250px]
+                left-[260px]
 
                 w-[100px]
                 md:w-[280px]
@@ -150,47 +150,38 @@ export default async function InvitationPage({ params }) {
           </div>
 
           <div className="w-full bg-black/15 rounded-2xl border border-[#c9a227]/30 p-5 mb-4 text-white">
-            <p
-              className="text-xl md:text-2xl uppercase tracking-[0.15em] font-bold text-white"
-              style={{ fontFamily: "var(--font-playfair), serif" }}
-            >
-              <span className="text-xl md:text-xl uppercase">
+            <p className="text-xl md:text-2xl uppercase tracking-[0.15em] font-bold font-serif text-white">
+              <span className="text-xl md:text-xl uppercase font-serif">
                 {currentInfo.dayOfWeek}
               </span>
 
-              <span className="mx-2 text-xl md:text-2xl">|</span>
+              <span className="mx-2 text-xl md:text-2xl font-serif">|</span>
 
-              <span className="text-xl md:text-xl uppercase">
+              <span className="text-xl md:text-xl uppercase font-serif">
                 {currentInfo.hour}
               </span>
 
-              <span className="block mt-2 text-3xl md:text-3xl">
+              <span className="block mt-2 text-3xl md:text-3xl font-serif">
                 {currentInfo.fullDate}
               </span>
             </p>
           </div>
-
-          {/* <GuestConfirmForm
-            guestType={currentInfo.type}
-            ceremonyName={currentInfo.ceremonyName}
-          /> */}
-
           <div className="w-full mt-6">
             <Link
               href={`/our-story/${currentInfo.type}`}
               className="
-    relative z-50
-    flex items-center justify-center gap-2
-    w-full py-4
-    rounded-full
-    bg-[#c9a227]
-    text-[#b33a4a]
-    uppercase tracking-[0.3em]
-    text-[11px] font-semibold
-    shadow-lg
-    hover:bg-[#e6d6a8]
-    transition-all duration-300
-  "
+              relative z-50
+              flex items-center justify-center gap-2
+              w-full py-4
+              rounded-full
+              bg-[#c9a227]
+              text-[#b33a4a]
+              uppercase tracking-[0.3em]
+              text-[11px] font-semibold
+              shadow-lg
+              hover:bg-[#e6d6a8]
+              transition-all duration-300
+            "
             >
               <span></span>
               <span>Mở Thiệp Cưới</span>

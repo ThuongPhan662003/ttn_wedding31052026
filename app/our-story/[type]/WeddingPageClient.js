@@ -14,6 +14,7 @@ import OurStorySection from "@/components/wedding/OurStorySection";
 import ThankYouSection from "@/components/wedding/ThankYouSection";
 import BrideGroomSection from "@/components/wedding/BrideGroomSection";
 import RSVPConfirm from "@/components/wedding/RSVPConfirm";
+import WishList from "@/components/wedding/WishList";
 export default function WeddingPageClient({ type }) {
   const [hasOpened, setHasOpened] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,6 +61,7 @@ export default function WeddingPageClient({ type }) {
 
             <RSVPForm type={type} onOpenDonation={() => setIsModalOpen(true)} />
           </section>
+          <WishList />
           <ThankYouSection type={type} />
         </div>
       )}

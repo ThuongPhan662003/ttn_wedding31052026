@@ -19,9 +19,9 @@ export default function InteractiveIntro({ onOpened }) {
   }, [onOpened]);
 
   return (
-    <div className="relative w-full max-w-md mx-auto min-h-screen bg-[#fcfaf6] text-center px-3 pt-6 pb-10 select-none overflow-x-hidden">
+    <div className="relative w-full max-w-md mx-auto min-h-screen bg-[#fcfaf6] text-center px-3 pt-10 pb-10 select-none overflow-x-hidden">
       {/* HEADER */}
-      <div className=" mb-50 md:mb-14">
+      <div className=" mb-30 md:mb-14">
         {/* KHUNG GÓC TRÁI TRÊN */}
         <img
           src="/images/khung.png"
@@ -129,6 +129,12 @@ export default function InteractiveIntro({ onOpened }) {
           10.07.2026
         </p>
       </div>
+      {/* DECORATIVE BOTTOM FLOWER */}
+      <img
+        src="/images/space.png"
+        alt=""
+        className="absolute -bottom-11 left-1/2 -translate-x-1/2 w-[40%] md:w-[90%] pointer-events-none z-50"
+      />
     </div>
   );
 }
