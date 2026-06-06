@@ -3,9 +3,9 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { name, attendance } = await request.json();
+    const { ten_khach, tham_du, nhom_khach } = await request.json();
 
-    if (!name?.trim()) {
+    if (!ten_khach?.trim()) {
       return NextResponse.json(
         {
           error: "Vui lòng nhập tên",
@@ -20,8 +20,9 @@ export async function POST(request) {
     const db = client.db("wedding_db");
 
     await db.collection("guests_confirm").insertOne({
-      ten_khach: name.trim(),
-      tham_du: attendance,
+      ten_khach: ten_khach.trim(),
+      tham_du,
+      nhom_khach,
       createdAt: new Date(),
     });
 
@@ -30,7 +31,7 @@ export async function POST(request) {
       message: "Xác nhận thành công",
     });
   } catch (error) {
-    console.error(error);
+    console.error("Guest confirm error:", error);
 
     return NextResponse.json(
       {
