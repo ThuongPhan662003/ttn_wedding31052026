@@ -16,10 +16,13 @@ export default function WishCard({ item }) {
 
       {/* IMAGE */}
       {item.hinh_anh_url && (
-        <div className="mt-3">
+        <div className="mt-3 flex justify-center">
           <img
             src={item.hinh_anh_url}
-            className="w-full h-auto object-cover rounded-lg border border-[#d4af37]/20"
+            className="max-w-full h-auto object-contain rounded-lg border border-[#d4af37]/20"
+            style={{
+              maxHeight: "400px",
+            }}
           />
         </div>
       )}

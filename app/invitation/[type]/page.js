@@ -4,7 +4,52 @@ import { notFound } from "next/navigation";
 // import GuestConfirmForm from "@/components/Invitation/GuestConfirmForm";
 
 export const revalidate = 0;
+export async function generateMetadata({ params }) {
+  const type = params.type;
 
+  const weddingConfig = {
+    nha_trai: {
+      title: "Lễ Tân Hôn: Trọng Nghĩa & Thu Thảo",
+    },
+    nha_gai: {
+      title: "Lễ Vu Quy: Thu Thảo & Trọng Nghĩa",
+    },
+  };
+
+  const current = weddingConfig[type];
+
+  if (!current) {
+    return {
+      title: "Thiệp cưới",
+    };
+  }
+
+  return {
+    title: current.title,
+    description: "Trân trọng kính mời bạn tham dự lễ cưới",
+    openGraph: {
+      title: current.title,
+      description: "Trân trọng kính mời bạn tham dự lễ cưới",
+      url: "https://thaonghiawedding.vercel.app",
+      siteName: "Wedding Invitation",
+      type: "website",
+      images: [
+        {
+          url: "https://thaonghiawedding.vercel.app/images/open-graph.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Thiệp cưới Thảo",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: current.title,
+      description: "Trân trọng kính mời bạn tham dự lễ cưới",
+      images: ["https://thaonghiawedding.vercel.app/og-image.jpg"],
+    },
+  };
+}
 export default async function InvitationPage({ params }) {
   const resolvedParams = await params;
 
