@@ -11,14 +11,24 @@ import PhotoGallery from "@/components/wedding/PhotoGallery";
 import DonationModal from "@/components/wedding/DonationModal";
 import OurStorySection from "@/components/wedding/OurStorySection";
 import ThankYouSection from "@/components/wedding/ThankYouSection";
+import { useRef } from "react";
 export default function WeddingPage() {
   const [hasOpened, setHasOpened] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpened = () => {
-    setHasOpened(true);
-  };
+  const audioRef = useRef(null);
 
+  const handleOpened = async () => {
+    setHasOpened(true);
+
+    setTimeout(async () => {
+      try {
+        await audioRef.current?.play();
+      } catch (err) {
+        console.log(err);
+      }
+    }, 100);
+  };
   return (
     <main className="relative min-h-screen bg-[#fcfaf6]">
       <RosePetals />
@@ -33,11 +43,9 @@ export default function WeddingPage() {
           <RosePetals />
 
           {/* FloatingMusic tự phát khi mount */}
-          <FloatingMusic
-            src="/musics/nen.mp3"
-            autoPlay={true}
-            targetSectionId="timeline"
-          />
+          <audio ref={audioRef} src="/musics/nen.mp3" loop preload="auto" />
+
+          <FloatingMusic audioRef={audioRef} targetSectionId="timeline" />
           <OurStorySection />
           <FamilyIntro />
           <WeddingEvents />

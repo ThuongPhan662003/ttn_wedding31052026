@@ -1,48 +1,43 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Music2, VolumeX } from "lucide-react";
 
 export default function FloatingMusic({
-  src = "/musics/nen.mp3",
+  audioRef,
   targetSectionId,
-  autoPlay = false,
 }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(null);
 
   useEffect(() => {
-    audioRef.current = new Audio(src);
-    audioRef.current.loop = true;
+    const audio = audioRef?.current;
 
-    if (autoPlay) {
-      audioRef.current
-        .play()
-        .then(() => {
-          setIsPlaying(true);
-        })
-        .catch((err) => {
-          console.log("Browser chặn autoplay:", err);
-        });
-    }
+    if (!audio) return;
+
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
+
+    setIsPlaying(!audio.paused);
 
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
     };
-  }, [src, autoPlay]);
+  }, [audioRef]);
 
   const togglePlay = async () => {
-    if (!audioRef.current) return;
+    const audio = audioRef?.current;
+
+    if (!audio) return;
 
     try {
-      if (isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(false);
+      if (audio.paused) {
+        await audio.play();
       } else {
-        await audioRef.current.play();
-        setIsPlaying(true);
+        audio.pause();
       }
     } catch (err) {
       console.log(err);
@@ -63,7 +58,6 @@ export default function FloatingMusic({
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-      {/* Nút lịch trình */}
       <button
         onClick={handleScrollToTimeline}
         className="
@@ -80,7 +74,6 @@ export default function FloatingMusic({
         📅
       </button>
 
-      {/* Nút nhạc */}
       <button
         onClick={togglePlay}
         title={isPlaying ? "Tắt nhạc" : "Bật nhạc"}
@@ -102,8 +95,8 @@ export default function FloatingMusic({
             <Music2 size={26} className="text-[#8b1c25]" />
 
             <span className="absolute -top-1 -right-1 flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75" />
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
             </span>
           </>
         ) : (

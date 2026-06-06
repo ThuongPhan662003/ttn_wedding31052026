@@ -11,7 +11,7 @@ export default function RosePetals() {
 
     let animationFrameId;
     let petals = [];
-    const maxPetals = 10;
+    const maxPetals = 5;
 
     const img = new Image();
     img.src = "/images/rose1.png"; // 👈 ảnh cánh hoa

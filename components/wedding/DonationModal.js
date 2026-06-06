@@ -29,15 +29,15 @@ export default function DonationModal({ isOpen, onClose }) {
 
         {/* Cột cuộn hiển thị thông tin ngân hàng của cả hai */}
         <div className="space-y-6 max-h-[360px] overflow-y-auto pr-1">
-          {/* TÀI KHOẢN CÔ DÂU (Ngọc Anh) */}
+          {/* TÀI KHOẢN CÔ DÂU (Thu Thảo) */}
           <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-sm">
             <p className="text-xs font-semibold text-[#8b1c25] tracking-wider mb-2 uppercase">
-              Mừng cưới Cô dâu (Ngọc Anh)
+              Mừng cưới Cô dâu (Thu Thảo)
             </p>
             <div className="w-40 h-40 mx-auto bg-gray-50 rounded-lg overflow-hidden border border-gray-200 p-1 mb-2 flex items-center justify-center shadow-inner">
-              {/* Ảnh QR VietinBank của Ngọc Anh */}
+              {/* Ảnh QR VietinBank của Thu Thảo */}
               <img
-                src="/images/static-qr-vietinbank.jpg"
+                src="/images/qr_dau.jpg"
                 alt="Mã QR Mừng Cưới Cô Dâu"
                 className="w-full h-full object-contain"
               />
@@ -46,33 +46,31 @@ export default function DonationModal({ isOpen, onClose }) {
               <div>
                 • Chủ TK:{" "}
                 <span className="font-bold text-gray-800">
-                  PHẠM THỊ NGỌC ANH
+                  PHẠM THỊ THU THẢO
                 </span>
               </div>
               <div>
                 • STK:{" "}
                 <span className="font-mono font-semibold text-gray-900">
-                  106871751824
+                  3394312035
                 </span>
               </div>
               <div>
                 • Ngân hàng:{" "}
-                <span className="font-medium text-gray-800">
-                  VietinBank (CN Bình Xuyên)
-                </span>
+                <span className="font-medium text-gray-800">Vietcombank</span>
               </div>
             </div>
           </div>
 
-          {/* TÀI KHOẢN CHÚ RỂ (Liu Bo) */}
+          {/* TÀI KHOẢN CHÚ RỂ (Trọng Nghĩa) */}
           <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-sm">
             <p className="text-xs font-semibold text-[#8b1c25] tracking-wider mb-2 uppercase">
-              Mừng cưới Chú rể (Liu Bo)
+              Mừng cưới Chú rể (Trọng Nghĩa)
             </p>
             <div className="w-40 h-40 mx-auto bg-gray-50 rounded-lg overflow-hidden border border-gray-200 p-1 mb-2 flex items-center justify-center shadow-inner">
               {/* Ảnh QR tài khoản chú rể của bạn */}
               <img
-                src="/images/qr-chure.png"
+                src="/images/qr_re.jpg"
                 alt="Mã QR Mừng Cưới Chú Rể"
                 className="w-full h-full object-contain"
               />
@@ -80,17 +78,17 @@ export default function DonationModal({ isOpen, onClose }) {
             <div className="text-xs text-gray-700 leading-relaxed text-left px-2 bg-[#fcfaf6] p-2 rounded border border-gray-50">
               <div>
                 • Chủ TK:{" "}
-                <span className="font-bold text-gray-800">LIU BO</span>
+                <span className="font-bold text-gray-800">Trọng Nghĩa</span>
               </div>
               <div>
                 • STK:{" "}
                 <span className="font-mono font-semibold text-gray-900">
-                  0987654321
+                  1033296400
                 </span>
               </div>
               <div>
                 • Ngân hàng:{" "}
-                <span className="font-medium text-gray-800">MB Bank</span>
+                <span className="font-medium text-gray-800">Vietcombank</span>
               </div>
             </div>
           </div>
