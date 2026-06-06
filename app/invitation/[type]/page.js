@@ -3,26 +3,6 @@ import { notFound } from "next/navigation";
 
 // import GuestConfirmForm from "@/components/Invitation/GuestConfirmForm";
 
-export const revalidate = 0;
-export const dynamic = "force-dynamic";
-
-export async function generateMetadata({ params }) {
-  const type = params?.type;
-
-  const titleMap = {
-    nha_trai: "Lễ Tân Hôn: Trọng Nghĩa & Thu Thảo",
-    nha_gai: "Lễ Vu Quy: Thu Thảo & Trọng Nghĩa",
-  };
-
-  const title = titleMap[type] || "Thiệp cưới";
-
-  return {
-    title,
-    description: "Trân trọng kính mời bạn tham dự lễ cưới",
-    openGraph: { title },
-    twitter: { title },
-  };
-}
 export default async function InvitationPage({ params }) {
   const resolvedParams = await params;
 
