@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useSearchParams } from "next/navigation";
+
 import InteractiveIntro from "@/components/wedding/InteractiveIntro";
 import RosePetals from "@/components/wedding/RosePetals";
 import FloatingMusic from "@/components/wedding/FloatingMusic";
@@ -11,12 +13,15 @@ import PhotoGallery from "@/components/wedding/PhotoGallery";
 import DonationModal from "@/components/wedding/DonationModal";
 import OurStorySection from "@/components/wedding/OurStorySection";
 import ThankYouSection from "@/components/wedding/ThankYouSection";
-import { useRef } from "react";
+import BrideGroomSection from "@/components/wedding/BrideGroomSection";
 export default function WeddingPage() {
   const [hasOpened, setHasOpened] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const audioRef = useRef(null);
+  const searchParams = useSearchParams();
+
+  const type = searchParams.get("type") || "nha_trai";
 
   const handleOpened = async () => {
     setHasOpened(true);
@@ -29,38 +34,33 @@ export default function WeddingPage() {
       }
     }, 100);
   };
+
   return (
-    <main className="relative min-h-screen bg-[#fcfaf6]">
+    <main className="relative min-h-screen overflow-hidden bg-[#fcfaf6]">
       <RosePetals />
 
-      {/* Intro */}
-      <div className="mb-10 md:mb-16">
-        <InteractiveIntro onOpened={handleOpened} />
-      </div>
+      <InteractiveIntro type={type} onOpened={handleOpened} />
 
       {hasOpened && (
         <div className="animate-in fade-in duration-1000">
-          <RosePetals />
-
-          {/* FloatingMusic tự phát khi mount */}
           <audio ref={audioRef} src="/musics/nen.mp3" loop preload="auto" />
-
           <FloatingMusic audioRef={audioRef} targetSectionId="timeline" />
-          <OurStorySection />
-          <FamilyIntro />
-          <WeddingEvents />
+          <OurStorySection type={type} />
+          <BrideGroomSection />
+          <FamilyIntro type={type} />
+          <WeddingEvents type={type} />
           <PhotoGallery />
-          <ThankYouSection />
-
-          <div id="rsvp-section">
-            <RSVPForm onOpenDonation={() => setIsModalOpen(true)} />
-          </div>
+          <section id="rsvp-section" className="px-4 py-12">
+            <RSVPForm type={type} onOpenDonation={() => setIsModalOpen(true)} />
+          </section>
+          <ThankYouSection type={type} />
         </div>
       )}
 
       <DonationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
+        type={type}
       />
     </main>
   );

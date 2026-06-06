@@ -60,10 +60,7 @@ export default function OurStorySection() {
               tìm được một người sẵn sàng cùng mình trưởng thành qua năm tháng.
             </p>
 
-            <p>
-              Giữa vô vàn cuộc gặp gỡ trong đời, việc tìm thấy một người để thấu
-              hiểu, để tin tưởng và để đồng hành vốn đã là một điều kỳ diệu.
-            </p>
+            
 
             <p>
               Và từ hôm nay, mọi mùa của cuộc sống sẽ không còn là hành trình

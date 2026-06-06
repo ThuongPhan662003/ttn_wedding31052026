@@ -2,60 +2,55 @@
 
 export default function ThankYouSection() {
   return (
-    <section className="relative bg-[#8b1c25] text-white py-24 px-6 overflow-hidden">
+    <section className="relative h-[700px] overflow-hidden">
       <img
-        src="/images/hoa.png"
-        alt=""
-        className="absolute top-0 right-0 w-56 opacity-10 rotate-90"
+        src="/images/thank.jpg"
+        alt="Thank You"
+        className="
+    absolute
+    inset-0
+    w-full
+    h-full
+    object-cover
+    object-[20%_100%]
+    md:object-center
+  "
       />
 
-      <img
-        src="/images/hoa.png"
-        alt=""
-        className="absolute bottom-0 left-0 w-56 opacity-10 -rotate-90"
-      />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/35" />
 
-      <div className="max-w-4xl mx-auto relative z-10">
-        <div className="text-center mb-14">
-          {/* <p className="uppercase tracking-[0.4em] text-xs text-[#e6d6a8] mb-3">
+      {/* Content */}
+      <div className="relative z-10 h-full flex items-center justify-center px-6">
+        <div className="max-w-3xl text-center text-white">
+          <p className="uppercase tracking-[0.45em] text-xs text-[#d4af37] mb-5">
             THANK YOU
-          </p> */}
+          </p>
 
-          <h2 className="font-serif italic text-4xl md:text-5xl text-[#e6d6a8]">
-            Lời Cảm Ơn
+          <h2 className="font-great-vibes text-6xl md:text-8xl text-[#f6e3a1] mb-8">
+            Xin Chân Thành Cảm Ơn
           </h2>
 
-          <div className="w-20 h-px bg-[#d4af37] mx-auto mt-5" />
-        </div>
+          <div className="w-24 h-px bg-[#d4af37] mx-auto mb-10" />
 
-        <div className="bg-white/5 backdrop-blur-sm rounded-3xl border border-[#d4af37]/20 p-8 md:p-12">
-          <div className="space-y-7 text-red-50 leading-9 text-[15px] md:text-[17px]">
-            <p>
-              Tấm thiệp này không chỉ là lời báo tin vui, mà còn là lời cảm ơn
-              chân thành gửi đến những người đã yêu thương, đồng hành và hiện
-              diện trong hành trình của chúng tôi suốt những năm tháng qua.
-            </p>
+          <p className="text-lg md:text-xl leading-10 text-white/90">
+            Sự hiện diện, những lời chúc phúc và tình cảm yêu thương của Quý
+            Khách là món quà quý giá nhất đối với chúng tôi.
+          </p>
 
-            <p>
-              Sự quan tâm, những lời chúc phúc và sự hiện diện của quý vị trong
-              ngày trọng đại sắp tới là niềm hạnh phúc vô cùng lớn lao đối với
-              gia đình chúng tôi.
-            </p>
+          <p className="mt-6 text-lg md:text-xl leading-10 text-white/90">
+            Chúng tôi vô cùng trân trọng và mong được đón tiếp Quý Khách trong
+            ngày trọng đại của gia đình.
+          </p>
 
-            <p>
-              Chúng tôi xin được gửi lời cảm ơn sâu sắc nhất và mong sẽ được đón
-              tiếp quý vị trong ngày vui của gia đình.
-            </p>
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="font-serif text-2xl italic text-[#e6d6a8]">
+          <div className="mt-14">
+            <p className="font-great-vibes text-4xl text-[#f6e3a1]">
               Trân Trọng
             </p>
 
-            <div className="mt-4 text-sm tracking-[0.25em] uppercase text-red-100">
-              Gia đình & Cô dâu - Chú rể
-            </div>
+            <p className="mt-4 tracking-[0.3em] uppercase text-sm text-white/80">
+              Gia Đình & Cô Dâu - Chú Rể
+            </p>
           </div>
         </div>
       </div>

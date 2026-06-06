@@ -1,0 +1,174 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+
+import GuestConfirmForm from "@/components/wedding/GuestConfirmForm";
+
+export const revalidate = 0;
+
+export default async function InvitationPage({ params }) {
+  const resolvedParams = await params;
+
+  const type = resolvedParams.type;
+
+  const weddingConfig = {
+    nha_trai: {
+      type: "nha_trai",
+
+      title: "NHÀ TRAI",
+
+      ceremonyName: "LỄ THÀNH HÔN",
+
+      dayOfWeek: "THỨ SÁU",
+      day: "10",
+      monthYear: "THÁNG 07, 2026",
+
+      fullDate: "10/07/2026",
+
+      hour: "10:30",
+
+      locationName: "Nhà hàng Công Đoàn",
+
+      city: "ĐẮK LẮK",
+
+      address: "Tầng trệt 53 Độc Lập, Phường Tuy Hòa",
+
+      mapLink: "https://maps.app.goo.gl/iyvqDWoJPtByyHRg9",
+    },
+
+    nha_gai: {
+      type: "nha_gai",
+
+      title: "NHÀ GÁI",
+
+      ceremonyName: "LỄ VU QUY",
+
+      dayOfWeek: "THỨ SÁU",
+      day: "03",
+      monthYear: "THÁNG 07, 2026",
+
+      fullDate: "03/07/2026",
+
+      hour: "11:00",
+
+      locationName: "Tư Gia Nhà Gái",
+
+      city: "ĐÀ NẴNG",
+
+      address: "Đường 28 - Khối Hà My Tây, Phường Điện Bàn Đông",
+
+      mapLink: "https://maps.app.goo.gl/aUNRR6Hw8y9t7Hdx5",
+    },
+  };
+
+  const currentInfo = weddingConfig[type];
+
+  if (!currentInfo) {
+    return notFound();
+  }
+
+  return (
+    <main className="min-h-screen bg-[#faf8f3] flex flex-col items-center p-4 md:p-8 relative overflow-hidden">
+      <div className="absolute top-[-10%] right-[-20%] w-[600px] h-[600px] rounded-full bg-[#a8bba2] blur-[120px] opacity-40" />
+      <div className="absolute bottom-[-10%] left-[-20%] w-[500px] h-[500px] rounded-full bg-[#a8bba2] blur-[100px] opacity-20" />
+
+      <Link
+        href="/"
+        className="mb-8 mt-2 flex items-center gap-2 text-[10px] tracking-[0.25em] uppercase text-[#2d3748]/50 hover:text-[#66785f]"
+      >
+        ← Sảnh đón tiếp
+      </Link>
+
+      <div className="relative w-full max-w-md mx-auto">
+        <div
+          className="relative bg-[#b33a4a] border-2 border-[#c9a227] shadow-2xl overflow-hidden p-6 md:p-8 flex flex-col items-center text-center"
+          style={{
+            borderRadius: "240px 240px 32px 32px",
+          }}
+        >
+          <div
+            className="absolute inset-2 border border-[#e6d6a8]/30"
+            style={{
+              borderRadius: "232px 232px 24px 24px",
+            }}
+          />
+
+          <div
+            className="absolute inset-3 border border-[#c9a227]/40"
+            style={{
+              borderRadius: "228px 228px 20px 20px",
+            }}
+          />
+
+          <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-[#e6d6a8]/15 to-transparent" />
+
+          <div className="flex flex-col items-center mt-12 mb-6 z-10">
+            <span className="text-5xl text-[#c9a227]">囍</span>
+
+            <div className="w-12 h-[1px] bg-[#c9a227]/50 mt-3" />
+          </div>
+
+          <p className="text-[9px] uppercase tracking-[0.35em] text-[#e6d6a8]/80 mb-6">
+            Trân trọng báo tin
+          </p>
+
+          <h3 className="text-3xl text-[#c9a227] font-playfair mb-2">
+            {currentInfo.ceremonyName}
+          </h3>
+
+          {/* <p className="text-[#e6d6a8] mb-8">{currentInfo.fullDate}</p> */}
+
+          <div className="space-y-2 mb-10 w-full">
+            <h1 className="text-5xl text-[#c9a227] font-coldwell">
+              Trọng Nghĩa
+            </h1>
+
+            <div className="flex flex-col items-center">
+              <span className="text-[#e6d6a8]">❦</span>
+
+              <div className="w-24 h-[1px] bg-[#c9a227]/50" />
+            </div>
+
+            <h1 className="text-5xl text-[#c9a227] font-coldwell">Thu Thảo</h1>
+          </div>
+
+          <div className="w-full bg-black/15 rounded-2xl border border-[#c9a227]/30 p-5 mb-8">
+            {/* <p className="text-[10px] tracking-[0.25em] uppercase text-[#e6d6a8]/70 mb-3">
+              Thời gian
+            </p> */}
+
+            {/* <p className="text-[#c9a227] text-xl">{currentInfo.hour}</p> */}
+
+            <p className="text-[#e6d6a8] mt-2">
+              {currentInfo.fullDate} {currentInfo.hour}
+            </p>
+          </div>
+
+          {/* <GuestConfirmForm
+            guestType={currentInfo.type}
+            ceremonyName={currentInfo.ceremonyName}
+          /> */}
+
+          <a
+            href={currentInfo.mapLink}
+            target="_blank"
+            className="
+              mt-6
+              block
+              w-full
+              py-3
+              rounded-full
+              bg-[#c9a227]
+              text-[#66785f]
+              uppercase
+              tracking-[0.2em]
+              text-[11px]
+              font-bold
+            "
+          >
+            Xem bản đồ
+          </a>
+        </div>
+      </div>
+    </main>
+  );
+}

@@ -105,13 +105,13 @@ export default function InteractiveIntro({ onOpened }) {
             transitionDelay: "0.2s",
           }}
         >
-          <span className="font-dancing text-gray-900 tracking-wide ">
+          <span className="font-great-vibes text-gray-900 tracking-wide ">
             Thu Thảo
           </span>
 
           <span className="text-red-500 text-sm animate-pulse mx-1">❤️</span>
 
-          <span className="font-pacifico  text-gray-900 tracking-wide">
+          <span className="font-great-vibes  text-gray-900 tracking-wide">
             Trọng Nghĩa
           </span>
         </div>
