@@ -125,11 +125,34 @@ export default async function InvitationPage({ params }) {
 
       <div className="relative w-full max-w-md mx-auto">
         <div
-          className="relative bg-[#b33a4a] border-2 border-[#c9a227] shadow-2xl  p- md:p-8 flex flex-col items-center text-center"
+          className="relative bg-[#b33a4a] border-2 border-[#c9a227] shadow-2xl p-8 flex flex-col items-center text-center z-10 overflow-hidden"
           style={{
             borderRadius: "240px 240px 32px 32px",
           }}
         >
+          {/* 🌸 MULTI FLOWER BACKGROUND */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            {/* flower 1 */}
+            <img
+              src="/images/hoa.png"
+              className="absolute top-[-40px] left-[-40px] w-[180px] rotate-[-20deg]"
+              style={{ opacity: 0.12, filter: "blur(1px)" }}
+            />
+
+            {/* flower 2 */}
+            <img
+              src="/images/hoa.png"
+              className="absolute top-[30%] right-[-60px] w-[220px] rotate-[25deg]"
+              style={{ opacity: 0.1, filter: "blur(1.2px)" }}
+            />
+
+            {/* flower 3 */}
+            <img
+              src="/images/hoa.png"
+              className="absolute bottom-[-60px] left-[10%] w-[260px] rotate-[10deg]"
+              style={{ opacity: 0.08, filter: "blur(1.5px)" }}
+            />
+          </div>
           {/* <img
             src="/images/hoa_baby.png"
             alt=""
@@ -206,7 +229,7 @@ export default async function InvitationPage({ params }) {
                   |
                 </span>
 
-                <span className="text-lg md:text-xl font-serif italic tracking-wide">
+                <span className="text-lg md:text-xl font-serif  tracking-wide">
                   {currentInfo.hour}
                 </span>
               </div>
