@@ -20,6 +20,7 @@ export function generateMetadata({ params }) {
     title: current?.ceremonyName || "Thiệp cưới ❤️",
   };
 }
+
 export default async function InvitationPage({ params }) {
   const resolvedParams = await params;
 
