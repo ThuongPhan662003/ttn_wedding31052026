@@ -2,9 +2,6 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 export default function RSVPForm({ onOpenDonation }) {
-  const searchParams = useSearchParams();
-
-  const guestId = searchParams.get("slug");
   const [imageBase64, setImageBase64] = useState("");
   const [formData, setFormData] = useState({
     name: "",
@@ -56,35 +53,16 @@ export default function RSVPForm({ onOpenDonation }) {
     reader.readAsDataURL(file);
   };
   const handleSubmit = async (e) => {
-    if (!guestId) {
-      alert("Không tìm thấy mã khách mời.");
-      return;
-    }
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const rsvpResponse = await fetch("/api/rsvp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          slug: guestId,
-          status: formData.attendance,
-        }),
-      });
-
-      if (!rsvpResponse.ok) {
-        throw new Error("RSVP failed");
-      }
       const response = await fetch("/api/wishes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          ma_khach_moi: guestId,
           ten_khach: formData.name,
           loi_chuc: formData.wishes,
           hinh_anh_url: imageBase64,
@@ -100,7 +78,6 @@ export default function RSVPForm({ onOpenDonation }) {
 
       setFormData({
         name: "",
-        attendance: "yes",
         wishes: "",
       });
 
@@ -148,22 +125,6 @@ export default function RSVPForm({ onOpenDonation }) {
               />
             </div>
 
-            {/* <div className="space-y-1.5">
-              <label className="text-xs font-medium tracking-wide uppercase text-red-100">
-                Bạn sẽ tham dự chứ?
-              </label>
-              <select
-                value={formData.attendance}
-                onChange={(e) =>
-                  setFormData({ ...formData, attendance: e.target.value })
-                }
-                className="w-full bg-[#821821] text-white border border-[#d4af37]/30 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37] transition-colors appearance-none"
-              >
-                <option value="yes">Chắc chắn sẽ đến chung vui</option>
-                <option value="maybe">Sẽ sắp xếp công việc sau</option>
-                <option value="no">Rất tiếc không thể tham dự</option>
-              </select>
-            </div>*/}
           </div>
 
           {/* Hàng 2: Lời chúc chân thành */}

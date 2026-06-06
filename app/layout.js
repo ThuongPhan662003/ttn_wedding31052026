@@ -22,7 +22,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://thaonghiawedding.vercel.app/images/hero-section.jpg",
+        url: "https://thaonghiawedding.vercel.app/images/open-graph.jpg",
         width: 1200,
         height: 630,
         alt: "Thiệp cưới Thảo",
