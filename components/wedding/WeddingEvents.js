@@ -46,9 +46,7 @@ return ( <section className="relative overflow-hidden w-full max-w-6xl mx-auto p
 
   {/* Heading */}
   <div className="text-center mb-16">
-    <p className="uppercase tracking-[0.35em] text-xs text-[#d4af37] mb-3">
-      Wedding Event
-    </p>
+  
 
     <h2 className="font-serif text-4xl text-[#8b1c25] italic">
       Thông Tin Sự Kiện

@@ -5,9 +5,7 @@ export default function WeddingEvents() {
       {/* --- Tiêu đề Section --- */}
       <div className="text-center mb-20 flex flex-col items-center">
         <span className="block w-px h-16 bg-[#D4AF37]/40 mb-6"></span>
-        <p className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] font-bold mb-4">
-          Save the Date
-        </p>
+       
         <h2 className="text-4xl md:text-5xl text-[#D4AF37] mb-6 italic tracking-tight" style={{ fontFamily: "var(--font-playfair), serif" }}>
           Sự Kiện Cưới
         </h2>

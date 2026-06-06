@@ -17,7 +17,7 @@ import RSVPConfirm from "@/components/wedding/RSVPConfirm";
 export default function WeddingPageClient({ type }) {
   const [hasOpened, setHasOpened] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-const [confirmed, setConfirmed] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
   const audioRef = useRef(null);
 
   const handleOpened = async () => {
@@ -41,15 +41,12 @@ const [confirmed, setConfirmed] = useState(false);
       {hasOpened && (
         <div className="animate-in fade-in duration-1000">
           <audio ref={audioRef} src="/musics/nen.mp3" loop preload="auto" />
-
           <FloatingMusic audioRef={audioRef} targetSectionId="timeline" />
-
-          <OurStorySection type={type} />
           <BrideGroomSection />
           <FamilyIntro type={type} />
+          <OurStorySection type={type} />
           <WeddingEvents type={type} />
           <PhotoGallery />
-
           <section
             id="rsvp-section"
             className="max-w-6xl mx-auto px-4 py-12 grid gap-8 lg:grid-cols-2"
@@ -63,7 +60,6 @@ const [confirmed, setConfirmed] = useState(false);
 
             <RSVPForm type={type} onOpenDonation={() => setIsModalOpen(true)} />
           </section>
-
           <ThankYouSection type={type} />
         </div>
       )}

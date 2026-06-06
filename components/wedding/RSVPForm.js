@@ -1,5 +1,4 @@
 "use client";
-"use client";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 export default function RSVPForm({ onOpenDonation }) {
@@ -122,11 +121,11 @@ export default function RSVPForm({ onOpenDonation }) {
         {/* Tiêu đề Form */}
         <div className="text-center space-y-2 mb-8">
           <h3 className="font-serif text-2xl md:text-3xl italic text-[#e6d6a8]">
-            Xác Nhận Tham Dự & Lời Chúc
+            Lời chúc dành cho cô dâu & chú rể
           </h3>
           <p className="text-xs text-red-200/75 max-w-md mx-auto font-light leading-relaxed">
-            Sự hiện diện của bạn là niềm hạnh phúc lớn nhất của chúng mình. Hãy
-            để lại thông tin để gia đình chuẩn bị đón tiếp chu đáo nhất nhé!
+            Lưu giữ những lời chúc ngọt ngào nhất dành cho cặp đôi trong ngày
+            trọng đại này nhé!
           </p>
         </div>
 
@@ -149,7 +148,7 @@ export default function RSVPForm({ onOpenDonation }) {
               />
             </div>
 
-            <div className="space-y-1.5">
+            {/* <div className="space-y-1.5">
               <label className="text-xs font-medium tracking-wide uppercase text-red-100">
                 Bạn sẽ tham dự chứ?
               </label>
@@ -164,7 +163,7 @@ export default function RSVPForm({ onOpenDonation }) {
                 <option value="maybe">Sẽ sắp xếp công việc sau</option>
                 <option value="no">Rất tiếc không thể tham dự</option>
               </select>
-            </div>
+            </div>*/}
           </div>
 
           {/* Hàng 2: Lời chúc chân thành */}

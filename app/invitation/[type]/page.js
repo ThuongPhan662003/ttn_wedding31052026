@@ -22,7 +22,7 @@ export default async function InvitationPage({ params }) {
       day: "10",
       monthYear: "THÁNG 07, 2026",
 
-      fullDate: "10/07/2026",
+      fullDate: "10.07.2026",
 
       hour: "10:30",
 
@@ -46,7 +46,7 @@ export default async function InvitationPage({ params }) {
       day: "03",
       monthYear: "THÁNG 07, 2026",
 
-      fullDate: "03/07/2026",
+      fullDate: "03.07.2026",
 
       hour: "11:00",
 
@@ -80,11 +80,29 @@ export default async function InvitationPage({ params }) {
 
       <div className="relative w-full max-w-md mx-auto">
         <div
-          className="relative bg-[#b33a4a] border-2 border-[#c9a227] shadow-2xl overflow-hidden p-6 md:p-8 flex flex-col items-center text-center"
+          className="relative bg-[#b33a4a] border-2 border-[#c9a227] shadow-2xl  p- md:p-8 flex flex-col items-center text-center"
           style={{
             borderRadius: "240px 240px 32px 32px",
           }}
         >
+          <img
+            src="/images/hoa_baby.png"
+            alt=""
+            className="
+                absolute
+                top-[440px]
+                left-[250px]
+
+                w-[100px]
+                md:w-[280px]
+
+                rotate-[30deg]
+
+                opacity-90
+                pointer-events-none
+                z-20
+            "
+          />
           <div
             className="absolute inset-2 border border-[#e6d6a8]/30"
             style={{
@@ -118,26 +136,37 @@ export default async function InvitationPage({ params }) {
           <p className="text-[#e6d6a8] mb-8"></p>
 
           <div className="space-y-2 mb-10 w-full">
-            <h1 className="text-5xl text-[#c9a227] font-coldwell">
+            <h1 className="text-5xl text-[#c9a227] font-great-vibes">
               Trọng Nghĩa
             </h1>
 
             <div className="flex flex-col items-center">
-              <span className="text-[#e6d6a8]">❦</span>
-
-              <div className="w-24 h-[1px] bg-[#c9a227]/50" />
+              <span className="text-[#c9a227] "> ღ</span>
             </div>
 
-            <h1 className="text-5xl text-[#c9a227] font-coldwell">Thu Thảo</h1>
+            <h1 className="text-5xl text-[#c9a227] font-great-vibes">
+              Thu Thảo
+            </h1>
           </div>
 
-          <div className="w-full bg-black/15 rounded-2xl border border-[#c9a227]/30 p-5 mb-8">
-            {/* <p className="text-[10px] tracking-[0.25em] uppercase text-[#e6d6a8]/70 mb-3">
-              Thời gian
-            </p> */}
+          <div className="w-full bg-black/15 rounded-2xl border border-[#c9a227]/30 p-5 mb-4 text-white">
+            <p
+              className="text-xl md:text-2xl uppercase tracking-[0.15em] font-bold text-white"
+              style={{ fontFamily: "var(--font-playfair), serif" }}
+            >
+              <span className="text-xl md:text-xl uppercase">
+                {currentInfo.dayOfWeek}
+              </span>
 
-            <p className=" font-serif text-[#e6d6a8] mt-2">
-              {currentInfo.fullDate} {currentInfo.hour}
+              <span className="mx-2 text-xl md:text-2xl">|</span>
+
+              <span className="text-xl md:text-xl uppercase">
+                {currentInfo.hour}
+              </span>
+
+              <span className="block mt-2 text-3xl md:text-3xl">
+                {currentInfo.fullDate}
+              </span>
             </p>
           </div>
 
@@ -163,7 +192,7 @@ export default async function InvitationPage({ params }) {
     transition-all duration-300
   "
             >
-              <span>💌</span>
+              <span></span>
               <span>Mở Thiệp Cưới</span>
             </Link>
           </div>

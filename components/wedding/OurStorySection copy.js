@@ -1,5 +1,5 @@
 "use client";
-import GalleryLayout from "@/components/wedding/GalleryLayout";
+
 export default function OurStorySection() {
   return (
     <section className="relative overflow-hidden bg-[#fcfaf6] py-24 px-6">
@@ -36,11 +36,6 @@ export default function OurStorySection() {
               có thêm thật nhiều sắc màu.
             </p>
 
-            <GalleryLayout
-              topImage="/images/story/top.jpg"
-              leftImage="/images/story/left.jpg"
-              rightImage="/images/story/right.jpg"
-            />
             <p>
               Anh mang đến cho em sự vững vàng, còn em mang đến cho anh những
               khoảng lặng dịu dàng. Chúng mình khác nhau trong cách nghĩ, cách
@@ -55,7 +50,8 @@ export default function OurStorySection() {
               Nhưng sau tất cả, chúng mình vẫn chọn ở lại, chọn nắm tay nhau và
               cùng bước tiếp.
             </p>
-            <GalleryLayout leftImage="/images/story/left1.jpg" />
+
+            
           </div>
 
           <div className="text-center mt-12">

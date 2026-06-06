@@ -16,7 +16,7 @@ export default function BrideGroomSection() {
         {/* Groom */}
         <div className="relative overflow-hidden rounded-[36px] group shadow-2xl">
           <img
-            src="/images/gallery/1.jpg"
+            src="/images/groom.jpg"
             alt="Chú rể"
             className="
               w-full
@@ -49,7 +49,7 @@ export default function BrideGroomSection() {
         {/* Bride */}
         <div className="relative overflow-hidden rounded-[36px] group shadow-2xl">
           <img
-            src="/images/gallery/1.jpg"
+            src="/images/bride.jpg"
             alt="Cô dâu"
             className="
               w-full

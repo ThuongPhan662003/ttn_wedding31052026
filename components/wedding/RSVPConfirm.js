@@ -82,9 +82,9 @@ export default function RSVPConfirm({ onConfirmed, type }) {
           <h2 className="text-3xl font-serif italic text-[#e6d6a8]">
             Xác Nhận Tham Dự{" "}
           </h2>
-          ```
           <p className="text-sm text-red-200/70 mt-3">
-            Sự hiện diện của bạn là niềm vinh hạnh đối với gia đình chúng mình.
+            Sự hiện diện của bạn là niềm hạnh phúc lớn nhất của chúng mình. Hãy
+            để lại thông tin để gia đình chuẩn bị đón tiếp chu đáo nhất nhé!
           </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-5">
