@@ -13,11 +13,11 @@ import DonationModal from "@/components/wedding/DonationModal";
 import OurStorySection from "@/components/wedding/OurStorySection";
 import ThankYouSection from "@/components/wedding/ThankYouSection";
 import BrideGroomSection from "@/components/wedding/BrideGroomSection";
-
+import RSVPConfirm from "@/components/wedding/RSVPConfirm";
 export default function WeddingPageClient({ type }) {
   const [hasOpened, setHasOpened] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+const [confirmed, setConfirmed] = useState(false);
   const audioRef = useRef(null);
 
   const handleOpened = async () => {
@@ -50,7 +50,17 @@ export default function WeddingPageClient({ type }) {
           <WeddingEvents type={type} />
           <PhotoGallery />
 
-          <section id="rsvp-section" className="px-4 py-12">
+          <section
+            id="rsvp-section"
+            className="max-w-6xl mx-auto px-4 py-12 grid gap-8 lg:grid-cols-2"
+          >
+            <RSVPConfirm
+              type={type}
+              onConfirmed={() => {
+                console.log("RSVP submitted");
+              }}
+            />
+
             <RSVPForm type={type} onOpenDonation={() => setIsModalOpen(true)} />
           </section>
 
