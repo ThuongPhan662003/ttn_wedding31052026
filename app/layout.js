@@ -13,7 +13,9 @@ import "./globals.css";
 // export const metadata = {
 //   title: "Thiệp cưới Thảo ❤️",
 //   description: "Trân trọng kính mời bạn tham dự lễ cưới Thảo & ...",
-
+export const metadata = {
+  title: "TEST PAGE TITLE",
+};
 //   openGraph: {
 //     title: "Thiệp cưới Thảo ❤️",
 //     description: "Trân trọng kính mời bạn tham dự lễ cưới",
