@@ -13,9 +13,7 @@ import "./globals.css";
 // export const metadata = {
 //   title: "Thiệp cưới Thảo ❤️",
 //   description: "Trân trọng kính mời bạn tham dự lễ cưới Thảo & ...",
-export const metadata = {
-  title: "TEST PAGE TITLE",
-};
+
 //   openGraph: {
 //     title: "Thiệp cưới Thảo ❤️",
 //     description: "Trân trọng kính mời bạn tham dự lễ cưới",
@@ -39,7 +37,7 @@ export const metadata = {
 //     images: ["https://thaonghiawedding.vercel.app/og-image.jpg"],
 //   },
 // };
-qexport const metadata = {
+export const metadata = {
   title: {
     default: "Thiệp cưới ❤️",
     template: "%s",
