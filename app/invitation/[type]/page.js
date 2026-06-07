@@ -3,15 +3,6 @@ import { notFound } from "next/navigation";
 
 // import GuestConfirmForm from "@/components/Invitation/GuestConfirmForm";
 
-export async function generateMetadata({ params }) {
-  const { type } = await params;
-
-  console.log("Metadata type:", type);
-
-  return {
-    title: `TEST-${type}`,
-  };
-}
 export default async function InvitationPage({ params }) {
   const resolvedParams = await params;
 
