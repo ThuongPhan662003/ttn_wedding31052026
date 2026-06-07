@@ -2,22 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 // import GuestConfirmForm from "@/components/Invitation/GuestConfirmForm";
-export function generateMetadata({ params }) {
-  const weddingConfig = {
-    nha_trai: {
-      ceremonyName: "LỄ THÀNH HÔN",
-    },
-    nha_gai: {
-      ceremonyName: "LỄ VU QUY",
-    },
-  };
-  const current = weddingConfig[params.type];
 
-  return {
-    title: current?.ceremonyName || "Thiệp cưới ❤️",
-  };
 }
-
 export default async function InvitationPage({ params }) {
   const resolvedParams = await params;
 
