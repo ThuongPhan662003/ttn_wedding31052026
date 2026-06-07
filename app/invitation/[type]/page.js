@@ -3,7 +3,9 @@ import { notFound } from "next/navigation";
 
 // import GuestConfirmForm from "@/components/Invitation/GuestConfirmForm";
 
-}
+export const metadata = {
+  title: "TEST PAGE TITLE",
+};
 export default async function InvitationPage({ params }) {
   const resolvedParams = await params;
 
