@@ -14,7 +14,7 @@ export default async function InvitationPage({ params }) {
 
       title: "NHÀ TRAI",
 
-      ceremonyName: "LỄ THÀNH HÔN",
+      ceremonyName: "LỄ TÂN HÔN",
 
       dayOfWeek: "THỨ SÁU",
       day: "10",
