@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 export default function RSVPForm({ onOpenDonation }) {
-  const [imageBase64, setImageBase64] = useState("");
+  //const [imageBase64, setImageBase64] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     attendance: "yes",
@@ -10,7 +10,8 @@ export default function RSVPForm({ onOpenDonation }) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-  const handleImageChange = (e) => {
+/*  
+const handleImageChange = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -52,6 +53,7 @@ export default function RSVPForm({ onOpenDonation }) {
 
     reader.readAsDataURL(file);
   };
+*/
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -65,7 +67,7 @@ export default function RSVPForm({ onOpenDonation }) {
         body: JSON.stringify({
           ten_khach: formData.name,
           loi_chuc: formData.wishes,
-          hinh_anh_url: imageBase64,
+          // hinh_anh_url: imageBase64,
           tham_du: formData.attendance,
         }),
       });
@@ -81,7 +83,7 @@ export default function RSVPForm({ onOpenDonation }) {
         wishes: "",
       });
 
-      setImageBase64("");
+      // setImageBase64("");
 
       setTimeout(() => {
         setSuccess(false);
@@ -142,7 +144,7 @@ export default function RSVPForm({ onOpenDonation }) {
               className="w-full bg-[#821821] text-white placeholder-red-300/40 border border-[#d4af37]/30 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#d4af37] transition-colors resize-none"
             />
           </div>
-          <div className="space-y-1.5">
+         {/* <div className="space-y-1.5">
             <label className="text-xs font-medium tracking-wide uppercase text-red-100">
               Hình ảnh kỷ niệm (Tùy chọn)
             </label>
@@ -163,7 +165,8 @@ export default function RSVPForm({ onOpenDonation }) {
                 />
               </div>
             )}
-          </div>
+          </div>*/}
+
           {/* Khối Thông Báo Thành Công Trực Quan */}
           {success && (
             <div className="text-xs bg-emerald-600/30 text-emerald-200 py-3 px-4 rounded-xl border border-emerald-500/30 text-center animate-fadeIn">
