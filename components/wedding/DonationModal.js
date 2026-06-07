@@ -29,7 +29,7 @@ export default function DonationModal({ isOpen, onClose }) {
 
         {/* Cột cuộn hiển thị thông tin ngân hàng của cả hai */}
         <div className="space-y-6 max-h-[360px] overflow-y-auto pr-1">
-          {/* TÀI KHOẢN CÔ DÂU (Thu Thảo) */}
+          {/* TÀI KHOẢN CÔ DÂU */}
           <div className="bg-white p-3 rounded-xl border border-gray-100 shadow-sm">
             <p className="text-xs font-semibold text-[#8b1c25] tracking-wider mb-2 uppercase">
               Mừng cưới Cô dâu (Thu Thảo)
@@ -78,7 +78,7 @@ export default function DonationModal({ isOpen, onClose }) {
             <div className="text-xs text-gray-700 leading-relaxed text-left px-2 bg-[#fcfaf6] p-2 rounded border border-gray-50">
               <div>
                 • Chủ TK:{" "}
-                <span className="font-bold text-gray-800">Trọng Nghĩa</span>
+                <span className="font-bold text-gray-800">TÔ TRỌNG NGHĨA</span>
               </div>
               <div>
                 • STK:{" "}
