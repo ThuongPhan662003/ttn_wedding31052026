@@ -21,4 +21,4 @@ export default async function Page({ params }: Props) {
   const { type } = await params;
 
   return <div>{type}</div>;
-}
+};
