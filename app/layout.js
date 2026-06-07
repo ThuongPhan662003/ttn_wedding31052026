@@ -37,8 +37,11 @@ import "./globals.css";
 //     images: ["https://thaonghiawedding.vercel.app/og-image.jpg"],
 //   },
 // };
-export const metadata = {
-  title: "Thiệp cưới ❤️",
+qexport const metadata = {
+  title: {
+    default: "Thiệp cưới ❤️",
+    template: "%s",
+  },
 };
 const inter = Inter({
   subsets: ["vietnamese"],
