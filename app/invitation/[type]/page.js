@@ -11,7 +11,6 @@ export function generateMetadata({ params }) {
       ceremonyName: "LỄ VU QUY",
     },
   };
-
   const current = weddingConfig[params.type];
 
   return {
