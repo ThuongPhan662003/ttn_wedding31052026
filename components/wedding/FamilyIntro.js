@@ -81,9 +81,7 @@ export default function FamilyIntro() {
                   </div>
 
                   <p className="text-gray-800 text-sm leading-6">
-                    Tại Tư Gia Nhà Gái,
-                    <br />
-                    Đường 28 - Khối Hà My Tây,
+                    Đường 28, Khối Hà My Tây,
                     <br />
                     Phường Điện Bàn Đông, TP. Đà Nẵng
                   </p>
@@ -105,9 +103,7 @@ export default function FamilyIntro() {
                   </div>
 
                   <p className="text-gray-800 text-sm leading-6">
-                    Nhà hàng Công Đoàn,
-                    <br />
-                    Tầng trệt 53 Độc Lập,
+                    39 Lê Thành Phương, Tổ 29
                     <br />
                     P. Tuy Hòa, Tỉnh Đắk Lắk
                   </p>
