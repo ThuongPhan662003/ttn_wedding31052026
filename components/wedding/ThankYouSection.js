@@ -7,13 +7,11 @@ export default function ThankYouSection() {
         src="/images/thank.jpg"
         alt="Thank You"
         className="
-  absolute
-  inset-0
-  w-full
-  h-auto
-  object-cover
-  object-right
-  md:object-center
+    absolute
+    inset-0
+    w-full
+    h-full
+    object-contain
   "
       />
 

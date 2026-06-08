@@ -20,15 +20,13 @@ export default function BrideGroomSection() {
             alt="Chú rể"
             className="
               w-full
-    h-[220px]
-    md:h-[380px]
-    object-cover
-    transition-all
-    duration-700
-    group-hover:scale-105
+              aspect-[3/4]
+              object-cover
+              transition-all
+              duration-700
+              group-hover:scale-105
             "
           />
-
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
 
           <div className="absolute left-8 bottom-8">
@@ -53,12 +51,11 @@ export default function BrideGroomSection() {
             alt="Cô dâu"
             className="
               w-full
-    h-[220px]
-    md:h-[380px]
-    object-cover
-    transition-all
-    duration-700
-    group-hover:scale-105
+              aspect-[3/4]
+              object-cover
+              transition-all
+              duration-700
+              group-hover:scale-105
             "
           />
 

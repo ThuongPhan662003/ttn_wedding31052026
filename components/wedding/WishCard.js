@@ -2,7 +2,7 @@ export default function WishCard({ item }) {
   return (
     <div className="p-4 text-left">
       {/* NAME */}
-      <h3 className="text-[#8b1c25] font-serif text-lg font-semibold tracking-wide">
+      <h3 className="text-[#8b1c25] font-serif text-2xl font-great-vibes tracking-wide">
         {item.ten_khach}
       </h3>
 
@@ -10,7 +10,7 @@ export default function WishCard({ item }) {
       <div className="w-10 h-[2px] bg-[#d4af37]/50 mt-1 mb-3" />
 
       {/* MESSAGE */}
-      <p className="text-[15px] text-gray-800 leading-relaxed whitespace-pre-line font-serif">
+      <p className="text-[15px] text-gray-800 leading-relaxed whitespace-pre-line font-medium">
         {item.loi_chuc}
       </p>
 
