@@ -52,7 +52,7 @@ export default function FloatingMusic({ audioRef }) {
 
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         {/* Nút Donate */}
-        <button
+        {/* <button
           onClick={() => setShowDonation(true)}
           className="
             w-12 h-12
@@ -66,7 +66,7 @@ export default function FloatingMusic({ audioRef }) {
           "
         >
           <Gift size={20} className="text-[#8b1c25]" />
-        </button>
+        </button> */}
 
         {/* Nút nhạc */}
         <button
