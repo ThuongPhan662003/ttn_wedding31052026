@@ -57,7 +57,11 @@ export default async function InvitationPage({ params }) {
       mapLink: "https://maps.app.goo.gl/aUNRR6Hw8y9t7Hdx5",
     },
   };
+  const groomName = "Trọng Nghĩa";
+  const brideName = "Thu Thảo";
 
+  const firstName = type === "nha_trai" ? groomName : brideName;
+  const secondName = type === "nha_trai" ? brideName : groomName;
   const currentInfo = weddingConfig[type];
 
   if (!currentInfo) {
@@ -158,15 +162,15 @@ export default async function InvitationPage({ params }) {
 
           <div className="space-y-2 mb-10 w-full">
             <h1 className="text-5xl text-[#c9a227] font-great-vibes">
-              Trọng Nghĩa
+              {firstName}
             </h1>
 
             <div className="flex flex-col items-center">
-              <span className="text-[#c9a227] "> ღ</span>
+              <span className="text-[#c9a227]">ღ</span>
             </div>
 
             <h1 className="text-5xl text-[#c9a227] font-great-vibes">
-              Thu Thảo
+              {secondName}
             </h1>
           </div>
 

@@ -2,7 +2,7 @@ export default function WishCard({ item }) {
   return (
     <div className="p-4 text-left">
       {/* NAME */}
-      <h3 className="text-[#8b1c25] font-serif text-2xl font-great-vibes tracking-wide">
+      <h3 className="text-[#8b1c25] font-serif text-2xl font-playfair tracking-wide">
         {item.ten_khach}
       </h3>
 
