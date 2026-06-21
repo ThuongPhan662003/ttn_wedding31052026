@@ -98,7 +98,38 @@ export default function WishbookPage() {
       groomPosition: "bottom-center",
     },
   ];
+const splitWishIntoSlides = (wish, maxChars = 350) => {
+  const text = wish.loi_chuc || "";
 
+  if (text.length <= maxChars) {
+    return [{ ...wish, part: 1, totalParts: 1 }];
+  }
+
+  const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [];
+
+  const pages = [];
+  let current = "";
+
+  sentences.forEach((sentence) => {
+    if ((current + sentence).length > maxChars) {
+      pages.push(current.trim());
+      current = sentence;
+    } else {
+      current += " " + sentence;
+    }
+  });
+
+  if (current.trim()) {
+    pages.push(current.trim());
+  }
+
+  return pages.map((content, index) => ({
+    ...wish,
+    loi_chuc: content,
+    part: index + 1,
+    totalParts: pages.length,
+  }));
+};
   // Vị trí hiển thị ảnh
 
   // Lấy dữ liệu từ API
@@ -128,7 +159,7 @@ export default function WishbookPage() {
 
     return () => clearInterval(interval);
   }, []);
-
+const slides = wishes.flatMap((wish) => splitWishIntoSlides(wish, 350));
   return (
     <main className="min-h-screen bg-white flex flex-col items-center p-4 md:p-8 relative overflow-hidden">
       {/* Background blur */}
@@ -198,12 +229,12 @@ export default function WishbookPage() {
             loop
             className="rounded-[40px]"
           >
-            {wishes.map((item, index) => {
+            {slides.map((item, index) => {
               const decor = weddingDecor[index % weddingDecor.length];
               const layout = layouts[index % layouts.length];
 
               return (
-                <SwiperSlide key={item.id}>
+                <SwiperSlide key={`${item.id}-${item.part}`}>
                   <div className="relative min-h-[700px] flex items-center">
                     {/* Cô dâu */}
                     <img
@@ -277,6 +308,14 @@ z-10
                         <p className="text-xs tracking-[0.3em] uppercase text-[#C9A227] mt-2">
                           Guest • Khách Quý
                         </p>
+
+                        {item.totalParts > 1 && (
+                          <div className="mt-3">
+                            <span className="inline-block px-4 py-1 rounded-full bg-[#C9A227]/10 text-[#C9A227] text-xs">
+                              Trang {item.part} / {item.totalParts}
+                            </span>
+                          </div>
+                        )}
                       </div>
 
                       <p className="text-center italic text-xl text-[#5F7161]/90 leading-loose mb-8">
