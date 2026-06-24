@@ -6,6 +6,7 @@ export default function RSVPConfirm({ onConfirmed, type }) {
   const [formData, setFormData] = useState({
     name: "",
     attendance: "yes",
+    so_luong: 1,
   });
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -33,6 +34,7 @@ export default function RSVPConfirm({ onConfirmed, type }) {
           ten_khach: formData.name.trim(),
           tham_du: formData.attendance,
           nhom_khach: type,
+          so_luong: formData.attendance === "yes" ? formData.so_luong : 0,
         }),
       });
 
@@ -116,7 +118,22 @@ export default function RSVPConfirm({ onConfirmed, type }) {
 
             <option value="no">🌷 Rất tiếc tôi không thể tham dự</option>
           </select>
-
+          {formData.attendance === "yes" && (
+            <input
+              type="number"
+              min="1"
+              max="20"
+              placeholder="Số lượng người tham dự"
+              value={formData.so_luong}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  so_luong: Number(e.target.value),
+                })
+              }
+              className="w-full rounded-xl bg-[#821821] px-4 py-3 outline-none"
+            />
+          )}
           {error && (
             <div className="text-sm text-red-300 bg-red-900/30 rounded-xl px-4 py-3">
               {error}

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { ten_khach, tham_du, nhom_khach } = await request.json();
+    const { ten_khach, tham_du, nhom_khach, so_luong } = await request.json();
 
     if (!ten_khach?.trim()) {
       return NextResponse.json(
@@ -23,6 +23,7 @@ export async function POST(request) {
       ten_khach: ten_khach.trim(),
       tham_du,
       nhom_khach,
+      so_luong: tham_du === "yes" ? Number(so_luong) || 1 : 0,
       createdAt: new Date(),
     });
 
