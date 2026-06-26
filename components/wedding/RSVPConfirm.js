@@ -90,6 +90,10 @@ export default function RSVPConfirm({ onConfirmed, type }) {
           </p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-5">
+        <div className="space-y-1.5">
+          <label className="text-xs font-medium tracking-wide uppercase text-red-100">
+            Tên của bạn *
+          </label>
           <input
             type="text"
             required
@@ -103,7 +107,11 @@ export default function RSVPConfirm({ onConfirmed, type }) {
             }
             className="w-full rounded-xl bg-[#821821] px-4 py-3 outline-none"
           />
-
+          </div>
+          <div className="space-y-1.5">
+              <label className="text-xs font-medium tracking-wide uppercase text-red-100">
+                Lựa chọn *
+              </label>
           <select
             value={formData.attendance}
             onChange={(e) =>
@@ -118,7 +126,13 @@ export default function RSVPConfirm({ onConfirmed, type }) {
 
             <option value="no">🌷 Rất tiếc tôi không thể tham dự</option>
           </select>
+          </div>
+          <div className="space-y-1.5">
+              <label className="text-xs font-medium tracking-wide uppercase text-red-100">
+                Số lượng người tham dự *
+              </label>
           {formData.attendance === "yes" && (
+            
             <input
               type="number"
               min="1"
@@ -134,6 +148,7 @@ export default function RSVPConfirm({ onConfirmed, type }) {
               className="w-full rounded-xl bg-[#821821] px-4 py-3 outline-none"
             />
           )}
+          </div>
           {error && (
             <div className="text-sm text-red-300 bg-red-900/30 rounded-xl px-4 py-3">
               {error}
