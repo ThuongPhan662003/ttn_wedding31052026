@@ -187,7 +187,7 @@ export default function WishbookPage() {
       {/* Title */}
       <div className="text-center max-w-xl mx-auto mb-14 z-10">
         <h1
-          className="text-4xl md:text-6xl text-[#5F7161] mb-3"
+          className="text-2xl md:text-3xl xl:text-5xl md:text-6xl text-[#5F7161] mb-3"
           style={{
             fontFamily: "var(--font-playfair), serif",
           }}
@@ -240,40 +240,63 @@ export default function WishbookPage() {
                     {/* Card lời chúc */}
                     <div
                       className="
-    w-[85%]
-    max-w-6xl
+    w-[95%]
+    xl:w-[90%]
+    max-w-[1700px]
     mx-auto
     bg-white
-    rounded-[40px]
+    rounded-[24px]
+    lg:rounded-[40px]
     border border-[#C9A227]/15
     shadow-[0_30px_60px_-20px_rgba(95,113,97,0.15)]
     overflow-hidden
     z-10
   "
                     >
-                      <div className="grid grid-cols-1 md:grid-cols-2 min-h-[650px]">
+                      <div className="grid grid-cols-1 lg:grid-cols-[38%_62%] min-h-[70vh]">
                         {/* ===== BÊN TRÁI - ẢNH ===== */}
-                        <div className="relative bg-[#F8F6F2] flex items-center justify-center p-10">
-                          <div className="space-y-6">
+                        <div className="bg-[#F8F6F2] flex items-center justify-center p-6 lg:p-10">
+                          <div className="space-y-6 w-full flex flex-col items-center">
+                            {/* Ảnh cô dâu */}
                             <img
                               src={decor.brideImage}
                               alt="Bride"
-                              className="w-72 h-72 object-cover rounded-3xl shadow-xl rotate-[-4deg]"
+                              className="
+      w-[65%]
+      max-w-[320px]
+      aspect-square
+      object-cover
+      rounded-3xl
+      shadow-xl
+      rotate-[-4deg]
+    "
                             />
 
+                            {/* Ảnh chú rể */}
                             <img
                               src={decor.groomImage}
                               alt="Groom"
-                              className="w-72 h-72 object-cover rounded-3xl shadow-xl ml-auto rotate-[4deg]"
+                              className="
+      hidden
+      lg:block
+      w-[65%]
+      max-w-[320px]
+      aspect-square
+      object-cover
+      rounded-3xl
+      shadow-xl
+      self-end
+      rotate-[4deg]
+    "
                             />
                           </div>
                         </div>
 
                         {/* ===== BÊN PHẢI - LỜI CHÚC ===== */}
-                        <div className="flex flex-col justify-between p-12">
+                        <div className="flex flex-col justify-between p-6 md:p-8 xl:p-12">
                           <div>
                             <h2
-                              className="text-4xl text-[#5F7161] mb-3"
+                              className="text-2xl md:text-3xl xl:text-5xl text-[#5F7161] mb-3"
                               style={{
                                 fontFamily: "var(--font-playfair), serif",
                               }}
@@ -291,7 +314,7 @@ export default function WishbookPage() {
                               </span>
                             )}
 
-                            <p className="text-xl italic leading-loose text-[#5F7161]/90">
+                            <p className="text-base md:text-lg xl:text-2xl italic leading-loose text-[#5F7161]/90">
                               ❝ {item.loi_chuc} ❞
                             </p>
 
@@ -299,7 +322,15 @@ export default function WishbookPage() {
                               <img
                                 src={item.hinh_anh_url}
                                 alt=""
-                                className="mt-8 rounded-3xl w-full max-h-64 object-cover shadow-lg"
+                                className="
+mt-8
+w-full
+max-h-[220px]
+xl:max-h-[320px]
+object-cover
+rounded-3xl
+shadow-lg
+"
                               />
                             )}
                           </div>
