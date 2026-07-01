@@ -98,38 +98,38 @@ export default function WishbookPage() {
       groomPosition: "bottom-center",
     },
   ];
-const splitWishIntoSlides = (wish, maxChars = 350) => {
-  const text = wish.loi_chuc || "";
+  const splitWishIntoSlides = (wish, maxChars = 350) => {
+    const text = wish.loi_chuc || "";
 
-  if (text.length <= maxChars) {
-    return [{ ...wish, part: 1, totalParts: 1 }];
-  }
-
-  const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [];
-
-  const pages = [];
-  let current = "";
-
-  sentences.forEach((sentence) => {
-    if ((current + sentence).length > maxChars) {
-      pages.push(current.trim());
-      current = sentence;
-    } else {
-      current += " " + sentence;
+    if (text.length <= maxChars) {
+      return [{ ...wish, part: 1, totalParts: 1 }];
     }
-  });
 
-  if (current.trim()) {
-    pages.push(current.trim());
-  }
+    const sentences = text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [];
 
-  return pages.map((content, index) => ({
-    ...wish,
-    loi_chuc: content,
-    part: index + 1,
-    totalParts: pages.length,
-  }));
-};
+    const pages = [];
+    let current = "";
+
+    sentences.forEach((sentence) => {
+      if ((current + sentence).length > maxChars) {
+        pages.push(current.trim());
+        current = sentence;
+      } else {
+        current += " " + sentence;
+      }
+    });
+
+    if (current.trim()) {
+      pages.push(current.trim());
+    }
+
+    return pages.map((content, index) => ({
+      ...wish,
+      loi_chuc: content,
+      part: index + 1,
+      totalParts: pages.length,
+    }));
+  };
   // Vị trí hiển thị ảnh
 
   // Lấy dữ liệu từ API
@@ -159,7 +159,7 @@ const splitWishIntoSlides = (wish, maxChars = 350) => {
 
     return () => clearInterval(interval);
   }, []);
-const slides = wishes.flatMap((wish) => splitWishIntoSlides(wish, 350));
+  const slides = wishes.flatMap((wish) => splitWishIntoSlides(wish, 350));
   return (
     <main className="min-h-screen bg-white flex flex-col items-center p-4 md:p-8 relative overflow-hidden">
       {/* Background blur */}
@@ -236,104 +236,78 @@ const slides = wishes.flatMap((wish) => splitWishIntoSlides(wish, 350));
               return (
                 <SwiperSlide key={`${item.id}-${item.part}`}>
                   <div className="relative min-h-[700px] flex items-center">
-                    {/* Cô dâu */}
-                    <img
-                      src={decor.brideImage}
-                      alt="Bride"
-                      className={`
-      absolute
-      z-0
-      w-40
-      h-40
-      object-cover
-      rounded-full
-      border-[6px]
-      border-white
-      shadow-2xl
-      animate-[float_6s_ease-in-out_infinite]
-      transition-all
-      duration-1000
-      ${layout.bride}
-   `}
-                    />
-
-                    {/* Chú rể */}
-                    <img
-                      src={decor.groomImage}
-                      alt="Groom"
-                      className={`
-      absolute
-      z-0
-      w-40
-      h-40
-      object-cover
-      rounded-full
-      border-[6px]
-      border-white
-      shadow-2xl
-      animate-[float_7s_ease-in-out_infinite]
-      transition-all
-      duration-1000
-      ${layout.groom}
-   `}
-                    />
-
+                    {/* Card lời chúc */}
                     {/* Card lời chúc */}
                     <div
                       className="
-w-[70%]
-mx-auto
-bg-white
-rounded-[40px]
-border border-[#C9A227]/15
-shadow-[0_30px_60px_-20px_rgba(95,113,97,0.15)]
-p-12
-relative
-overflow-hidden
-z-10
-"
+    w-[85%]
+    max-w-6xl
+    mx-auto
+    bg-white
+    rounded-[40px]
+    border border-[#C9A227]/15
+    shadow-[0_30px_60px_-20px_rgba(95,113,97,0.15)]
+    overflow-hidden
+    z-10
+  "
                     >
-                      <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#5F7161] via-[#C9A227] to-[#5F7161]" />
+                      <div className="grid grid-cols-1 md:grid-cols-2 min-h-[650px]">
+                        {/* ===== BÊN TRÁI - ẢNH ===== */}
+                        <div className="relative bg-[#F8F6F2] flex items-center justify-center p-10">
+                          <div className="space-y-6">
+                            <img
+                              src={decor.brideImage}
+                              alt="Bride"
+                              className="w-72 h-72 object-cover rounded-3xl shadow-xl rotate-[-4deg]"
+                            />
 
-                      <div className="text-center mb-8">
-                        <h2
-                          className="text-3xl text-[#5F7161]"
-                          style={{
-                            fontFamily: "var(--font-playfair), serif",
-                          }}
-                        >
-                          {item.ten_khach}
-                        </h2>
-
-                        <p className="text-xs tracking-[0.3em] uppercase text-[#C9A227] mt-2">
-                          Guest • Khách Quý
-                        </p>
-
-                        {item.totalParts > 1 && (
-                          <div className="mt-3">
-                            <span className="inline-block px-4 py-1 rounded-full bg-[#C9A227]/10 text-[#C9A227] text-xs">
-                              Trang {item.part} / {item.totalParts}
-                            </span>
+                            <img
+                              src={decor.groomImage}
+                              alt="Groom"
+                              className="w-72 h-72 object-cover rounded-3xl shadow-xl ml-auto rotate-[4deg]"
+                            />
                           </div>
-                        )}
-                      </div>
-
-                      <p className="text-center italic text-xl text-[#5F7161]/90 leading-loose mb-8">
-                        ❝ {item.loi_chuc} ❞
-                      </p>
-
-                      {item.hinh_anh_url && (
-                        <div className="flex justify-center mb-8">
-                          <img
-                            src={item.hinh_anh_url}
-                            alt=""
-                            className="rounded-3xl max-h-[350px] object-cover shadow-lg"
-                          />
                         </div>
-                      )}
 
-                      <div className="text-center text-xs text-[#5F7161]/40 border-t border-[#C9A227]/10 pt-4">
-                        {item.thoi_gian}
+                        {/* ===== BÊN PHẢI - LỜI CHÚC ===== */}
+                        <div className="flex flex-col justify-between p-12">
+                          <div>
+                            <h2
+                              className="text-4xl text-[#5F7161] mb-3"
+                              style={{
+                                fontFamily: "var(--font-playfair), serif",
+                              }}
+                            >
+                              {item.ten_khach}
+                            </h2>
+
+                            <p className="uppercase tracking-[0.3em] text-xs text-[#C9A227] mb-8">
+                              Guest • Khách Quý
+                            </p>
+
+                            {item.totalParts > 1 && (
+                              <span className="inline-block mb-6 px-4 py-1 rounded-full bg-[#C9A227]/10 text-[#C9A227] text-xs">
+                                Trang {item.part}/{item.totalParts}
+                              </span>
+                            )}
+
+                            <p className="text-xl italic leading-loose text-[#5F7161]/90">
+                              ❝ {item.loi_chuc} ❞
+                            </p>
+
+                            {item.hinh_anh_url && (
+                              <img
+                                src={item.hinh_anh_url}
+                                alt=""
+                                className="mt-8 rounded-3xl w-full max-h-64 object-cover shadow-lg"
+                              />
+                            )}
+                          </div>
+
+                          <div className="border-t border-[#C9A227]/10 pt-6 mt-10 text-sm text-[#5F7161]/40">
+                            {item.thoi_gian}
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
