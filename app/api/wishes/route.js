@@ -9,7 +9,7 @@ export async function POST(request) {
     const body = await request.json();
     const { ten_khach, loi_chuc, hinh_anh_url } = body; // hinh_anh_url là chuỗi ảnh Base64 từ Client
 
-    if (!ten_khach) {
+    if (!ten_khach || !loi_chuc) {
       return NextResponse.json(
         { error: "Thiếu thông tin bắt buộc" },
         { status: 400 },

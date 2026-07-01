@@ -177,7 +177,40 @@ export default function SendWishPage() {
             </button>
           </form>
         )}
+        <div className="relative py-2">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-[#d4af37]/20"></div>
+          </div>
 
+          <div className="relative flex justify-center">
+            <span className="bg-[#70121a] px-4 text-[10px] uppercase tracking-[0.25em] text-[#d4af37]/60">
+              hoặc
+            </span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => router.push("/wishbook")}
+          className="
+    w-full
+    py-3.5
+    rounded-full
+    border-2
+    border-[#d4af37]/40
+    text-[#e6d6a8]
+    font-bold
+    uppercase
+    tracking-widest
+    text-xs
+    hover:bg-[#d4af37]
+    hover:text-[#8b1c25]
+    transition-all
+    duration-300
+  "
+        >
+          👀 Bỏ qua & Xem Sảnh Lời Chúc
+        </button>
         <div className="text-[#C9A227]/50 text-xs mt-6 mb-1">✦ ❦ ✦</div>
       </div>
 
